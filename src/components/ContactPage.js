@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function HomePage ()
+export default function Contact (props)
 {
 	return (
-		<div><h4>Home Page</h4></div>
+		<><h4>Contact</h4></>
 	)
 }

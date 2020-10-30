@@ -4,6 +4,8 @@ import ProductsPage from './ProductsPage'
 import HomePage from './HomePage'
 import AppHeader from './AppHeader'
 import AppFooter from './AppFooter'
+import AboutPage from './AboutPage'
+import ContactPage from './ContactPage'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
@@ -13,7 +15,7 @@ const Wrapper = styled.div`
 	flex-direction: column;
 	background-color: hsl(0, 0%, 90%);
 `
-const Content = styled.div`
+const Content = styled.div.attrs(() => ({ className: 'container' }))`
 	padding: 1rem;
 	height: 0;
 	flex: 1;
@@ -29,6 +31,8 @@ export default function App ()
 					<Switch>
 						<Route exact strict path='/'><HomePage /></Route>
 						<Route path='/products'><ProductsPage /></Route>
+						<Route path='/contact'><ContactPage /></Route>
+						<Route path='/about'><AboutPage /></Route>
 					</Switch>
 				</Content>
 				<AppFooter />

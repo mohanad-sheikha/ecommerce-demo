@@ -1,7 +1,7 @@
 import React from 'react'
 import HomePage from '../components/HomePage'
 
-export default { title: 'Components/Home Page', component: HomePage }
+export default { title: 'Pages/Home', component: HomePage }
 
 const Template = (args) => <HomePage { ...args } />
 

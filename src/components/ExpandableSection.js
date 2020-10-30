@@ -36,7 +36,6 @@ export default function ExpandableSection ({ title, children })
 {
 	const [ isExpanded, setIsExpanded ] = useState(false)
 	const toggleExpanded = () => { setIsExpanded(!isExpanded) }
-	console.log(children)
 
 	return (
 		<Wrapper>

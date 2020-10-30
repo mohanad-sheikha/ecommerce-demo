@@ -7,9 +7,11 @@ const Wrapper = styled.header`
 	background-color: hsl(0, 0%, 95%);
 	border-bottom: 1px solid hsl(0, 0%, 85%);
 `
-const NavContainer = styled.nav`
-	display: flex;
-	justify-content: space-between;
+const NavContainer = styled.nav.attrs(() => ({ className: 'container' }))`
+	display: grid;
+	grid-auto-flow: column;
+	grid-gap: 2rem;
+	justify-content: center;
 `
 
 export default function AppHeader ()
