@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const Wrapper = styled.img`
-	background-color: hsl(0, 0%, 50%);
 	width: 100%;
-	height: auto;
+	height: 100%;
+	object-fit: contain;
 `
 
 export default function ProductImage ({ product: { imageUrl } })
