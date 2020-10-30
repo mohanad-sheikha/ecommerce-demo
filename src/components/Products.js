@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import Product from './Product'
 import uniqid from 'uniqid'
+import ProductsStore from '../mobx/ProductsStore'
+import { useObserver } from 'mobx-react-lite'
 
 const Wrapper = styled.div`
 	display: grid;
@@ -12,11 +14,9 @@ const Wrapper = styled.div`
 
 export default function Products ()
 {
-	const data = [ { id: uniqid(), name: '16-inch Macbook Pro', price: 99.99, imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/71h6PpGaz9L._AC_SL1500_.jpg' } ]
-
-	return (
+	return useObserver(() => (
 		<Wrapper>
-			{ data && data.map(product => <Product key={ product.id } product={ product } />) }
+			{ ProductsStore.all && ProductsStore.all.map(product => <Product key={ product.id } product={ product } />) }
 		</Wrapper>
-	)
+	))
 }
