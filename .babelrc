@@ -10,7 +10,11 @@
 				"legacy": true
 			}
 		],
-		["@babel/proposal-class-properties"],
-		["babel-plugin-styled-components"]
+		[
+			"@babel/proposal-class-properties"
+		],
+		[
+			"babel-plugin-styled-components"
+		]
 	]
 }
