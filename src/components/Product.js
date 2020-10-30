@@ -4,22 +4,22 @@ import ProductInfo from './ProductInfo'
 import ProductImage from './ProductImage'
 import PropTypes from 'prop-types'
 
-const Wrapper = styled.div`
+const ProductImageWrapper = styled.div`
 	background-color: white;
 	padding: 1rem;
 `
 const ProductInfoWrapper = styled.div`
 	margin-top: 1rem;
 `
+const Wrapper = styled.div`
+`
 
 export default function Product ({ product })
 {
 	return (
 		<Wrapper>
-			<ProductImage product={ product } />
-			<ProductInfoWrapper>
-				<ProductInfo product={ product } />
-			</ProductInfoWrapper>
+			<ProductImageWrapper><ProductImage product={ product } /></ProductImageWrapper>
+			<ProductInfoWrapper><ProductInfo product={ product } /></ProductInfoWrapper>
 		</Wrapper>
 	)
 }

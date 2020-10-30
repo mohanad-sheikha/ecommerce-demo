@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 
 export default function Products ()
 {
-	const data = [ { id: uniqid(), name: 'test', price: 99.99, imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/71h6PpGaz9L._AC_SL1500_.jpg' } ]
+	const data = [ { id: uniqid(), name: '16-inch Macbook Pro', price: 99.99, imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/71h6PpGaz9L._AC_SL1500_.jpg' } ]
 
 	return (
 		<Wrapper>
