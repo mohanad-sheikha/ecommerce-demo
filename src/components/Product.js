@@ -1,23 +1,30 @@
 import React from 'react'
 import styled from 'styled-components'
-import ProductFooter from './ProductFooter'
+import ProductInfo from './ProductInfo'
+import ProductImage from './ProductImage'
+import PropTypes from 'prop-types'
 
 const Wrapper = styled.div`
-	background-color: hsl(0, 0%, 80%);
-	padding-bottom: 0;
-	width: 200px;
-	min-height: 300px;
-	display: flex;
-	flex-direction: column;
-	border-radius: 0.5rem;
-	overflow: hidden;
+	background-color: white;
+	padding: 1rem;
+`
+const ProductInfoWrapper = styled.div`
+	margin-top: 1rem;
 `
 
-export default function Product ( { product } )
+export default function Product ({ product })
 {
 	return (
 		<Wrapper>
-			<ProductFooter product={ product } />
+			<ProductImage product={ product } />
+			<ProductInfoWrapper>
+				<ProductInfo product={ product } />
+			</ProductInfoWrapper>
 		</Wrapper>
 	)
+}
+
+Product.propTypes =
+{
+	product: PropTypes.object.isRequired
 }

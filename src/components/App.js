@@ -19,7 +19,7 @@ const Content = styled.div`
 	flex: 1;
 `
 
-export default function App ( props )
+export default function App ()
 {
 	return (
 		<Wrapper>
