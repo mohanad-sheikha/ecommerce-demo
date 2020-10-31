@@ -18,9 +18,9 @@ const NavColumn = styled.div`
 `
 const Container = styled.div.attrs(() => ({ className: 'container' }))`
 	display: grid;
-	grid-auto-flow: column;
+	grid-template-columns: auto auto;
 	grid-gap: 2rem;
-	justify-content: center;
+	justify-content: space-evenly;
 `
 
 const AppFooter = () =>

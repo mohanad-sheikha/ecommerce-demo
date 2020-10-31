@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 const Wrapper = styled.dl`
 	display: grid;
-	grid-template-columns: min-content auto;
+	grid-template-columns: auto auto;
 	grid-row-gap: 0.5rem;
 	grid-column-gap: 2rem;
 	margin: 0;
