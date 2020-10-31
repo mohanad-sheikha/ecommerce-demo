@@ -14,7 +14,7 @@ class ProductsStore
 		'151zzxcasd': {
 			id: '151zzxcasd',
 			price: 850.99,
-			name: '16-inch Macbook Pro (2020)',
+			name: '16-inch Macbook Pro i9 (2020)',
 			imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/71h6PpGaz9L._AC_SL1500_.jpg'
 		},
 		'zz1232ff': {
