@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function Contact (props)
+const ContactPage = (props) =>
 {
 	return (
-		<><h4>Contact</h4></>
+		<React.Fragment><h4>Contact</h4></React.Fragment>
 	)
 }
+
+export default ContactPage

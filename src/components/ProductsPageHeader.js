@@ -3,23 +3,24 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const Wrapper = styled.div`
-	display: flex;
+	display: grid;
+	grid-auto-flow: column;
+	grid-gap: 1rem;
+	align-items: baseline;
 	justify-content: space-between;
 	padding-bottom: 1rem;
-	border-bottom: 2px solid hsl(0, 0%, 80%);
+	border-bottom: var(--moe-border-medium);
 `
 const Title = styled.h4`
 	margin-bottom: 0;
 `
 const Actions = styled.div`
-	margin-left: 1rem;
 `
 const SidebarExpandButton = styled.button.attrs(() => ({ className: 'btn btn-link' }))`
 	padding: 0;
-	text-align: right;
 `
 
-export default function ProductsPageHeader ({ isSidebarVisible, toggleSidebar })
+const ProductsPageHeader = ({ isSidebarVisible, toggleSidebar }) =>
 {
 	return (
 		<Wrapper>
@@ -43,3 +44,5 @@ ProductsPageHeader.defaultProps =
 {
 	isSidebarVisible: true
 }
+
+export default ProductsPageHeader

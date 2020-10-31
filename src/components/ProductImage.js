@@ -6,9 +6,10 @@ const Wrapper = styled.img`
 	width: 100%;
 	height: 100%;
 	object-fit: contain;
+	margin: auto;
 `
 
-export default function ProductImage ({ product: { imageUrl } })
+const ProductImage = ({ product: { imageUrl } }) =>
 {
 	return (
 		<Wrapper src={ imageUrl }></Wrapper>
@@ -21,3 +22,5 @@ ProductImage.propTypes =
 		imageUrl: PropTypes.string.isRequired
 	}).isRequired
 }
+
+export default ProductImage

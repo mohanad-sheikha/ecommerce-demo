@@ -14,7 +14,7 @@ const NavContainer = styled.nav.attrs(() => ({ className: 'container' }))`
 	justify-content: center;
 `
 
-export default function AppHeader ()
+const AppHeader = () =>
 {
 	return (
 		<Wrapper>
@@ -29,3 +29,5 @@ export default function AppHeader ()
 		</Wrapper>
 	)
 }
+
+export default AppHeader

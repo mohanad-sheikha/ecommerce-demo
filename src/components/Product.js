@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import ProductInfo from './ProductInfo'
+import ProductFooter from './ProductFooter'
 import ProductImage from './ProductImage'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
@@ -8,9 +8,10 @@ import { Link } from 'react-router-dom'
 const ProductImageWrapper = styled.div`
 	background-color: white;
 	padding: 1rem;
-	flex: 1;
+	display: flex;
+	height: 200px;
 `
-const ProductInfoWrapper = styled.div`
+const ProductFooterWrapper = styled.div`
 	margin-top: 0.5rem;
 `
 const Wrapper = styled(Link)`
@@ -19,12 +20,12 @@ const Wrapper = styled(Link)`
 	color: inherit;
 `
 
-export default function Product ({ product })
+const Product = ({ product }) =>
 {
 	return (
 		<Wrapper to={ `/products/${ product.id }` }>
 			<ProductImageWrapper><ProductImage product={ product } /></ProductImageWrapper>
-			<ProductInfoWrapper><ProductInfo product={ product } /></ProductInfoWrapper>
+			<ProductFooterWrapper><ProductFooter product={ product } /></ProductFooterWrapper>
 		</Wrapper>
 	)
 }
@@ -35,3 +36,5 @@ Product.propTypes =
 		id: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]).isRequired
 	}).isRequired
 }
+
+export default Product

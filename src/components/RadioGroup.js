@@ -4,7 +4,7 @@ import Radio from './Radio'
 import uniqid from 'uniqid'
 import PropTypes from 'prop-types'
 
-export default function Radios ({ options, onOptionSelect })
+const RadioGroup = ({ options, onOptionSelect }) =>
 {
 	const [ checkedOption, setCheckedOption ] = useState(null)
 	const [ groupId ] = useState(uniqid())
@@ -17,8 +17,10 @@ export default function Radios ({ options, onOptionSelect })
 	)
 }
 
-Radios.propTypes =
+RadioGroup.propTypes =
 {
 	options: PropTypes.arrayOf(PropTypes.string).isRequired,
 	onOptionSelect: PropTypes.func
 }
+
+export default RadioGroup

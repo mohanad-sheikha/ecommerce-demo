@@ -20,7 +20,7 @@ const ProductPrice = styled.div`
 	color: black !important;
 `
 
-export default function ProductInfo ({ product: { name, price } })
+const ProductFooter = ({ product: { name, price } }) =>
 {
 	return (
 		<Wrapper>
@@ -30,10 +30,12 @@ export default function ProductInfo ({ product: { name, price } })
 	)
 }
 
-ProductInfo.propTypes =
+ProductFooter.propTypes =
 {
 	product: PropTypes.shape({
 		name: PropTypes.string.isRequired,
 		price: PropTypes.number.isRequired
 	}).isRequired
 }
+
+export default ProductFooter

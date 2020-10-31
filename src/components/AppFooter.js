@@ -23,7 +23,7 @@ const Container = styled.div.attrs(() => ({ className: 'container' }))`
 	justify-content: center;
 `
 
-export default function AppFooter ()
+const AppFooter = () =>
 {
 	return (
 		<Wrapper>
@@ -46,3 +46,5 @@ export default function AppFooter ()
 		</Wrapper>
 	)
 }
+
+export default AppFooter

@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function AboutPage (props)
+const AboutPage = (props) =>
 {
 	return (
-		<><h4>About</h4></>
+		<React.Fragment><h4>About</h4></React.Fragment>
 	)
 }
+
+export default AboutPage

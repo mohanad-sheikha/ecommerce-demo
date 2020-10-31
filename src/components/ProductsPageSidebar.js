@@ -10,9 +10,10 @@ const Wrapper = styled.div`
 	grid-gap: 0.5rem;
 	grid-auto-rows: min-content;
 	border-left: 2px solid hsl(0, 0%, 80%);
+	min-width: 200px;
 `
 
-export default function ProductsPageSidebar ()
+const ProductsPageSidebar = () =>
 {
 	const [ sizeOptions, setSizeOptions ] = useState([ '11-inch', '14-inch', '15.6-inch' ])
 	const [ checkedSizeOption, setCheckedSizeOption ] = useState(null)
@@ -26,3 +27,5 @@ export default function ProductsPageSidebar ()
 		</Wrapper>
 	)
 }
+
+export default ProductsPageSidebar

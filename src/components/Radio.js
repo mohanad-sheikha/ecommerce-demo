@@ -41,7 +41,7 @@ const Input = styled.input.attrs(() => ({ type: 'radio' }))`
 	display: none;
 `
 
-export default function Radio ({ isChecked, groupId, label, value, onInputChange })
+const Radio = ({ isChecked, groupId, label, value, onInputChange }) =>
 {
 	const inputRef = useRef(null)
 	const onLabelClick = () => { inputRef.current.click() }
@@ -67,3 +67,5 @@ Radio.defaultProps =
 {
 	isChecked: false
 }
+
+export default Radio

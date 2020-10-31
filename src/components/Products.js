@@ -7,12 +7,11 @@ import { useObserver } from 'mobx-react-lite'
 
 const Wrapper = styled.div`
 	display: grid;
-	grid-auto-flow: column;
 	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 	grid-gap: 1rem;
 `
 
-export default function Products ()
+const Products = () =>
 {
 	return useObserver(() => (
 		<Wrapper>
@@ -20,3 +19,5 @@ export default function Products ()
 		</Wrapper>
 	))
 }
+
+export default Products

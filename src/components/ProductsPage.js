@@ -7,7 +7,6 @@ import styled from 'styled-components'
 const SecondRow = styled.div`
 	display: grid;
 	grid-auto-flow: column;
-	grid-template-columns: 2fr minmax(min-content, 250px);
 	grid-gap: 1rem;
 
 	> *
@@ -16,19 +15,20 @@ const SecondRow = styled.div`
 	}
 `
 
-export default function ProductsPage ()
+const ProductsPage = () =>
 {
 	const [ isSidebarVisible, setIsSidebarVisible ] = useState(true)
-
 	const toggleSidebar = () => { setIsSidebarVisible(!isSidebarVisible) }
 
 	return (
-		<>
+		<React.Fragment>
 			<ProductsPageHeader isSidebarVisible={ isSidebarVisible } toggleSidebar={ toggleSidebar } />
 			<SecondRow>
 				<Products />
 				{ isSidebarVisible && <ProductsPageSidebar /> }
 			</SecondRow>
-		</>
+		</React.Fragment>
 	)
 }
+
+export default ProductsPage

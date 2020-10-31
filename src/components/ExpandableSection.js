@@ -32,7 +32,7 @@ const Container = styled.div`
 	`}
 `
 
-export default function ExpandableSection ({ title, children })
+const ExpandableSection = ({ title, children }) =>
 {
 	const [ isExpanded, setIsExpanded ] = useState(false)
 	const toggleExpanded = () => { setIsExpanded(!isExpanded) }
@@ -57,3 +57,5 @@ ExpandableSection.propTypes =
 	title: PropTypes.string.isRequired,
 	children: PropTypes.oneOfType([ PropTypes.array, PropTypes.object ]).isRequired
 }
+
+export default ExpandableSection
