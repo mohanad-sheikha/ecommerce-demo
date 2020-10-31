@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Currency from './Currency'
+import PropTypes from 'prop-types'
 
 const Wrapper = styled.div`
 	display: grid;
@@ -21,6 +22,14 @@ const ProductPageHeader = ({ product: { name, price } }) =>
 			<Currency value={ price } />
 		</Wrapper>
 	)
+}
+
+ProductPageHeader.propTypes =
+{
+	product: PropTypes.shape({
+		name: PropTypes.string.isRequired,
+		price: PropTypes.number.isRequired
+	}).isRequired
 }
 
 export default ProductPageHeader

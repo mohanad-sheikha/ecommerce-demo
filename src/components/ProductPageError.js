@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const Wrapper = styled.div.attrs(() => ({ className: 'alert-danger' }))`
 	padding: 1rem;
@@ -17,6 +18,11 @@ const ProductPageError = ({ text }) =>
 			{ text }
 		</Wrapper>
 	)
+}
+
+ProductPageError.propTypes =
+{
+	text: PropTypes.string.isRequired
 }
 
 export default ProductPageError
