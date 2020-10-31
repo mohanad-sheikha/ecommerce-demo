@@ -59,7 +59,7 @@ Radio.propTypes =
 	isChecked: PropTypes.bool,
 	groupId: PropTypes.string.isRequired,
 	label: PropTypes.string.isRequired,
-	value: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]).isRequired,
+	value: PropTypes.string.isRequired,
 	onInputChange: PropTypes.func
 }
 

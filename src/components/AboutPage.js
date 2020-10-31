@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const AboutPage = (props) =>
+const AboutPage = () =>
 {
 	return (
 		<React.Fragment><h4>About</h4></React.Fragment>

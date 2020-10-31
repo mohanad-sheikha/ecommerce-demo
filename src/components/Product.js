@@ -22,8 +22,10 @@ const Wrapper = styled(Link)`
 
 const Product = ({ product }) =>
 {
+	const { id } = product
+
 	return (
-		<Wrapper to={ `/products/${ product.id }` }>
+		<Wrapper to={ `/products/${ id }` }>
 			<ProductImageWrapper><ProductImage product={ product } /></ProductImageWrapper>
 			<ProductFooterWrapper><ProductFooter product={ product } /></ProductFooterWrapper>
 		</Wrapper>
