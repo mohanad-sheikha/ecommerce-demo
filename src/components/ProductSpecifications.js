@@ -12,21 +12,27 @@ const Wrapper = styled.dl`
 `
 const Label = styled.dt`
 	font-weight: 400;
-	color: var(--bs-secondary);
 	white-space: nowrap;
 `
 const Value = styled.dd`
 	margin: 0;
 	line-break: anywhere;
+	color: var(--bs-secondary);
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 `
 
 const ProductSpecifications = ({ product }) =>
 {
 	const humanLabels = {
 		'id': 'Identifier',
+		'originalPrice': 'Original Price',
 		'price': 'Price',
 		'name': 'Name',
 		'imageUrl': 'Image URL',
+		'size': 'Size',
 	}
 
 	return (
