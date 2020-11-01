@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const Wrapper = styled.header`
 	padding: 0.5rem 1rem;
-	background-color: hsl(0, 0%, 95%);
+	background-color: var(--moe-light-secondary);
 	border-bottom: var(--moe-border-small);
 `
 const NavContainer = styled.nav.attrs(() => ({ className: 'container' }))`

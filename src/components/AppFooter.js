@@ -5,6 +5,7 @@ import styled from 'styled-components'
 const Wrapper = styled.footer`
 	padding: 2rem 1rem;
 	border-top: var(--moe-border-small);
+	background-color: var(--moe-light-secondary);
 `
 const ColumnTitle = styled.h6`
 	color: var(--bs-secondary);

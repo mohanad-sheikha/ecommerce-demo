@@ -29,6 +29,7 @@ const GlobalStyle = createGlobalStyle`
 		--moe-border-color: hsl(0, 0%, 80%);
 		--moe-border-small: 1px var(--moe-border-style) var(--moe-border-color);
 		--moe-border-medium: 2px var(--moe-border-style) var(--moe-border-color);
+		--moe-light-secondary: hsl(0, 0%, 95%);
 	}
 `
 
