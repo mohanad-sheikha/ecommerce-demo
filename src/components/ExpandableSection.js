@@ -7,7 +7,6 @@ const Wrapper = styled.div`
 	grid-auto-flow: row;
 `
 const Title = styled.h6`
-	margin-bottom: 0;
 `
 const ExpandButton = styled.button.attrs(() => ({ className: 'btn btn-link' }))`
 	padding: 0;
@@ -16,7 +15,6 @@ const ExpandButton = styled.button.attrs(() => ({ className: 'btn btn-link' }))`
 const Header = styled.div`
 	display: flex;
 	justify-content: space-between;
-	align-items: baseline;
 
 	${ ExpandButton }
 	{
