@@ -17,11 +17,12 @@ const FeaturedProducts = () =>
 	const getProducts = () => ProductsStore.all.filter(product => (product.originalPrice ?? false))
 	const onLeftNav = (e) => { setIndex(index > 0 ? index - 1 : getProducts().length - 1) }
 	const onRightNav = (e) => { setIndex(index < getProducts().length - 1 ? index + 1 : 0) }
+	const onIndicatorSelect = (index) => { if (index >= 0 && index < getProducts().length) setIndex(index) }
 
 	return useObserver(() => (
 		<Wrapper>
 			<FeaturedProductsHeader />
-			<Carousel onLeftNav={ onLeftNav } onRightNav={ onRightNav }>
+			<Carousel onLeftNav={ onLeftNav } onRightNav={ onRightNav } onIndicatorSelect={ onIndicatorSelect } pageCount={ getProducts().length } currentIndex={ index }>
 				<FeaturedProduct product={ getProducts()[ index ] } />
 			</Carousel>
 		</Wrapper>

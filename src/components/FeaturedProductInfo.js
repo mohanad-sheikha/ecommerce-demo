@@ -13,12 +13,17 @@ const Wrapper = styled.div`
 const Container = styled.div`
 	margin-top: auto;
 	margin-right: auto;
+	max-width: 100%;
 	padding: 1rem;
-	background-color: white;
 	border-radius: 0.5rem;
-	background-color: var(--bs-light);
+	background-color: var(--moe-light-secondary);
 `
-const Title = styled.h6``
+const Title = styled.h6`
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	overflow-wrap: break-word;
+`
 
 const FeaturedProductInfo = ({ product: { name, price, originalPrice } }) =>
 {
