@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const Wrapper = styled.header`
 	padding: 0.5rem 1rem;
 	background-color: hsl(0, 0%, 95%);
-	border-bottom: 1px solid hsl(0, 0%, 85%);
+	border-bottom: var(--moe-border-small);
 `
 const NavContainer = styled.nav.attrs(() => ({ className: 'container' }))`
 	display: grid;
