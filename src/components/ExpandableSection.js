@@ -16,7 +16,7 @@ const ExpandButton = styled.button.attrs(() => ({ className: 'btn btn-link' }))`
 const Header = styled.div`
 	display: flex;
 	justify-content: space-between;
-	align-content: center;
+	align-items: baseline;
 
 	${ ExpandButton }
 	{
