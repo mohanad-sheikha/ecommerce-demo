@@ -1,10 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
+import FeaturedProducts from './FeaturedProducts'
+
+const Wrapper = styled.div`
+	display: grid;
+	grid-auto-flow: row;
+	grid-auto-rows: 350px;
+`
 
 const HomePage = () =>
 {
 	return (
-		<div><h4>Home Page</h4></div>
+		<Wrapper>
+			<FeaturedProducts />
+		</Wrapper>
 	)
 }
 
