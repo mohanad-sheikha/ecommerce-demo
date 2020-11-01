@@ -19,7 +19,6 @@ const Wrapper = styled.div`
 `
 const Content = styled.div.attrs(() => ({ className: 'container' }))`
 	padding: 1rem;
-	height: 0;
 	flex: 1;
 `
 const BreadcrumbsWrapper = styled.div`
