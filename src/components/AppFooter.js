@@ -3,14 +3,16 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Wrapper = styled.footer`
-	padding: 0.5rem 1rem;
-	border-top: 1px solid hsl(0, 0%, 80%);
+	padding: 2rem 1rem;
+	border-top: var(--moe-border-small);
 `
 const ColumnTitle = styled.h6`
+	color: var(--bs-secondary);
 `
 const LinksContainer = styled.div`
 	display: grid;
 	grid-auto-flow: row;
+	grid-gap: 0.20rem;
 `
 const NavColumn = styled.div`
 	display: flex;
