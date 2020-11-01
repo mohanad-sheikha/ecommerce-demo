@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import styled from 'styled-components'
 
 const ContactPage = () =>
 {
 	return (
-		<React.Fragment><h4>Contact</h4></React.Fragment>
+		<Fragment><h4>Contact</h4></Fragment>
 	)
 }
 

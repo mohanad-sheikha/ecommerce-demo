@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import ReactDOM from 'react-dom'
 import App from './components/App'
 import { createGlobalStyle } from 'styled-components'
@@ -24,4 +24,4 @@ const GlobalStyle = createGlobalStyle`
 	}
 `
 
-ReactDOM.render(<React.Fragment><App /><GlobalStyle /></React.Fragment>, document.getElementById('app'))
+ReactDOM.render(<Fragment><App /><GlobalStyle /></Fragment>, document.getElementById('app'))

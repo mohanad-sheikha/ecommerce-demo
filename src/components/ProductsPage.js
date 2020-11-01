@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import ProductsPageHeader from './ProductsPageHeader'
 import ProductsPageSidebar from './ProductsPageSidebar'
 import Products from './Products'
@@ -21,13 +21,13 @@ const ProductsPage = () =>
 	const toggleSidebar = () => { setIsSidebarVisible(!isSidebarVisible) }
 
 	return (
-		<React.Fragment>
+		<Fragment>
 			<ProductsPageHeader isSidebarVisible={ isSidebarVisible } toggleSidebar={ toggleSidebar } />
 			<SecondRow>
 				<Products />
 				{ isSidebarVisible && <ProductsPageSidebar /> }
 			</SecondRow>
-		</React.Fragment>
+		</Fragment>
 	)
 }
 

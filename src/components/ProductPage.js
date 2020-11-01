@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import ProductsStore from '../mobx/ProductsStore'
 import ProductPageError from './ProductPageError'
@@ -29,7 +29,7 @@ const ProductPage = () =>
 	const product = ProductsStore.byId[ id ]
 
 	return useObserver(() => (
-		<React.Fragment>
+		<Fragment>
 			{ product ? (
 				<Wrapper>
 					<ProductPageHeader product={ product } />
@@ -42,7 +42,7 @@ const ProductPage = () =>
 				</Wrapper>
 			) : <ProductPageError text="I didn't find that product." />
 			}
-		</React.Fragment>
+		</Fragment>
 	))
 }
 

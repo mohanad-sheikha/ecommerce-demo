@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
@@ -32,10 +32,10 @@ const ProductSpecifications = ({ product }) =>
 	return (
 		<Wrapper>
 			{ product && Object.entries(product).map(([ label, value ]) => (
-				<React.Fragment key={ label }>
+				<Fragment key={ label }>
 					<Label>{ humanLabels[ label ] || label }</Label>
 					<Value>{ value }</Value>
-				</React.Fragment>
+				</Fragment>
 			)) }
 		</Wrapper>
 	)

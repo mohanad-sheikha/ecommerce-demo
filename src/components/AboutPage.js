@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import styled from 'styled-components'
 
 const AboutPage = () =>
 {
 	return (
-		<React.Fragment><h4>About</h4></React.Fragment>
+		<Fragment><h4>About</h4></Fragment>
 	)
 }
 

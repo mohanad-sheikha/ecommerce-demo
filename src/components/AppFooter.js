@@ -20,7 +20,7 @@ const Container = styled.div.attrs(() => ({ className: 'container' }))`
 	display: grid;
 	grid-template-columns: auto auto;
 	grid-gap: 2rem;
-	justify-content: space-evenly;
+	justify-content: center;
 `
 
 const AppFooter = () =>
@@ -29,7 +29,7 @@ const AppFooter = () =>
 		<Wrapper>
 			<Container>
 				<NavColumn>
-					<ColumnTitle>Ecommerce Demo</ColumnTitle>
+					<ColumnTitle>Mohanad Abu Sheikha</ColumnTitle>
 					<LinksContainer>
 						<Link to='/about'>About</Link>
 						<Link to='/contact'>Contact</Link>
