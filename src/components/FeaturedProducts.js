@@ -15,8 +15,8 @@ const FeaturedProducts = () =>
 {
 	const [ index, setIndex ] = useState(0)
 	const getProducts = () => ProductsStore.all.filter(product => (product.originalPrice ?? false))
-	const onLeftNav = (e) => { if (index > 0) setIndex(index - 1) }
-	const onRightNav = (e) => { if (index < getProducts().length - 1) setIndex(index + 1) }
+	const onLeftNav = (e) => { setIndex(index > 0 ? index - 1 : getProducts().length - 1) }
+	const onRightNav = (e) => { setIndex(index < getProducts().length - 1 ? index + 1 : 0) }
 
 	return useObserver(() => (
 		<Wrapper>

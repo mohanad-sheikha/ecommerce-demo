@@ -1,14 +1,15 @@
 import React, { forwardRef, Fragment } from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const Wrapper = styled.div`
 	position: relative;
 	display: grid;
 	min-height: 0;
 	background-color: white;
-	padding: 1rem;
+	padding: 2rem;
 `
-const ArrowButton = styled.button.attrs(() => ({ className: 'btn btn-link border' }))`
+const ArrowButton = styled.button.attrs(() => ({ className: 'btn btn-link' }))`
 	padding: 0;
 	z-index: 1;
 	height: 32px;
@@ -48,15 +49,21 @@ const RightArrow = ({ onNav }) => (
 	</RightArrowWrapper >
 )
 
-const Carousel = ({ children, onLeftNav, onRightNav }) =>
+const Carousel = forwardRef(({ children, onLeftNav, onRightNav, ...rest }, ref) =>
 {
 	return (
-		<Wrapper>
+		<Wrapper { ...rest } ref={ ref }>
 			<LeftArrow onNav={ onLeftNav }></LeftArrow>
 			{ React.Children.only(children) }
 			<RightArrow onNav={ onRightNav }></RightArrow>
 		</Wrapper >
 	)
+})
+
+Carousel.propTypes =
+{
+	onLeftNav: PropTypes.func,
+	onRightNav: PropTypes.func,
 }
 
 export default Carousel

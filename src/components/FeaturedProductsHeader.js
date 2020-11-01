@@ -8,8 +8,6 @@ const Wrapper = styled.div`
 	align-items: baseline;
 	justify-content: space-between;
 	padding-bottom: 1rem;
-	margin-bottom: 1rem;
-	border-bottom: var(--moe-border-medium);
 `
 const Title = styled.h4`
 	margin-bottom: 0;
