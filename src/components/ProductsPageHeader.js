@@ -18,6 +18,7 @@ const Actions = styled.div`
 `
 const SidebarExpandButton = styled.button.attrs(() => ({ className: 'btn btn-link' }))`
 	padding: 0;
+	box-shadow: none !important;
 `
 
 const ProductsPageHeader = ({ isSidebarVisible, toggleSidebar }) =>

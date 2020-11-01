@@ -11,8 +11,7 @@ const Title = styled.h6`
 `
 const ExpandButton = styled.button.attrs(() => ({ className: 'btn btn-link' }))`
 	padding: 0;
-	flex: 1;
-	text-align: right;
+	box-shadow: none !important;
 `
 const Header = styled.div`
 	display: flex;
