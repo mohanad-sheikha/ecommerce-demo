@@ -25,14 +25,12 @@ const Breadcrumbs = () =>
 	const getRouteMatches = () => getRoutes().map(({ path, name }) => ({ ...useRouteMatch({ path }), name }))
 
 	return (
-		<Fragment>
-			<Wrapper>
-				{ getRouteMatches().map(({ url, name }) => <Fragment key={ url }>
-					<Link to={ url }>{ name }</Link>
-					<span>/</span>
-				</Fragment>) }
-			</Wrapper>
-		</Fragment>
+		<Wrapper>
+			{ getRouteMatches().map(({ url, name }) => <Fragment key={ url }>
+				<Link to={ url }>{ name }</Link>
+				<span>/</span>
+			</Fragment>) }
+		</Wrapper>
 	)
 }
 
