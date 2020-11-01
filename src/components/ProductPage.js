@@ -26,7 +26,7 @@ const ProductSpecificationsWrapper = styled.div`
 const ProductPage = () =>
 {
 	const { id } = useParams()
-	const product = ProductsStore.byId[ id ]
+	const product = ProductsStore.byId[ String(id) ]
 
 	return useObserver(() => (
 		<Fragment>
