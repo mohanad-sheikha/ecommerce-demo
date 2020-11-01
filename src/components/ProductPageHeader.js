@@ -4,11 +4,6 @@ import Currency from './Currency'
 import PropTypes from 'prop-types'
 
 const Wrapper = styled.div`
-	display: grid;
-	grid-auto-flow: column;
-	grid-gap: 1rem;
-	align-items: baseline;
-	justify-content: space-between;
 `
 const Title = styled.h4`
 	margin-bottom: 0;
