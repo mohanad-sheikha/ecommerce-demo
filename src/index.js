@@ -8,12 +8,20 @@ const GlobalStyle = createGlobalStyle`
 		text-decoration: none;
 	}
 	button {
-		text-decoration: none !important;
+		text-decoration: none;
 	}
 	.btn-link {
-		box-shadow: none !important;
-		outline: none !important;
-		border: none !important;
+		box-shadow: none;
+		outline: none;
+		border: none;
+	}
+	body
+	{
+		line-height: normal;
+	}
+	.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6
+	{
+		line-height: normal;
 	}
 	:root
 	{
