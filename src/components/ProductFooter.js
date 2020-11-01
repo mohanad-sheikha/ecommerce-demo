@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Currency from './Currency'
+import ProductPrice from './ProductPrice'
 import PropTypes from 'prop-types'
 
 const ProductName = styled.h6`
@@ -13,20 +14,14 @@ const ProductName = styled.h6`
 	-webkit-box-orient: vertical;
 `
 const Wrapper = styled.div`
-	display: grid;
-	grid-auto-flow: row;
-	overflow: hidden;
-`
-const ProductPrice = styled.div`
-	color: black !important;
 `
 
-const ProductFooter = ({ product: { name, price } }) =>
+const ProductFooter = ({ product: { name, price, originalPrice } }) =>
 {
 	return (
 		<Wrapper>
 			<ProductName>{ name }</ProductName>
-			<ProductPrice><Currency value={ price } /></ProductPrice>
+			<ProductPrice value={ price } originalValue={ originalPrice } />
 		</Wrapper>
 	)
 }

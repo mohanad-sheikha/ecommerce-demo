@@ -1,20 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
-import Currency from './Currency'
+import ProductPrice from './ProductPrice'
 import PropTypes from 'prop-types'
 
 const Wrapper = styled.div`
 `
 const Title = styled.h4`
-	margin-bottom: 0;
 `
 
-const ProductPageHeader = ({ product: { name, price } }) =>
+const ProductPageHeader = ({ product: { name, price, originalPrice } }) =>
 {
 	return (
 		<Wrapper>
 			<Title>{ name }</Title>
-			<Currency value={ price } />
+			<ProductPrice value={ price } originalValue={ originalPrice } />
 		</Wrapper>
 	)
 }
@@ -23,7 +22,8 @@ ProductPageHeader.propTypes =
 {
 	product: PropTypes.shape({
 		name: PropTypes.string.isRequired,
-		price: PropTypes.number.isRequired
+		price: PropTypes.number.isRequired,
+		originalPrice: PropTypes.number,
 	}).isRequired
 }
 
