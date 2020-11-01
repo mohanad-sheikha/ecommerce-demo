@@ -7,8 +7,9 @@ const ProductName = styled.h6`
 	font-weight: 400;
 	overflow: hidden;
 	overflow-wrap: break-word;
+	text-overflow: ellipsis;
 	display: -webkit-box;
-	-webkit-line-clamp: 3;
+	-webkit-line-clamp: 1;
 	-webkit-box-orient: vertical;
 `
 const Wrapper = styled.div`
