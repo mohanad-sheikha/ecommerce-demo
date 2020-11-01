@@ -8,11 +8,6 @@ const SecondRow = styled.div`
 	display: grid;
 	grid-auto-flow: column;
 	grid-gap: 1rem;
-
-	> *
-	{
-		padding-top: 1rem;
-	}
 `
 
 const ProductsPage = () =>
@@ -25,7 +20,7 @@ const ProductsPage = () =>
 			<ProductsPageHeader isSidebarVisible={ isSidebarVisible } toggleSidebar={ toggleSidebar } />
 			<SecondRow>
 				<Products />
-				{ isSidebarVisible && <ProductsPageSidebar /> }
+				<ProductsPageSidebar isVisible={ isSidebarVisible } />
 			</SecondRow>
 		</Fragment>
 	)
