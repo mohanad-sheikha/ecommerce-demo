@@ -1,4 +1,4 @@
-import React, { forwardRef, Fragment, useState, useEffect } from 'react'
+import React, { forwardRef, Fragment, useEffect, useRef } from 'react'
 import IndicatorGroup from './IndicatorGroup'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
@@ -14,16 +14,17 @@ const Wrapper = styled.div`
 
 const Carousel = forwardRef(({ children, onLeftNav, onRightNav, onIndicatorSelect, pageCount, currentIndex, ...rest }, ref) =>
 {
-	const [ timer, setTimer ] = useState(null)
-	const stopTimer = () => { clearInterval(timer); setTimer(null) }
-	const startTimer = () => { setTimer(setInterval(onRightNav, 7000)) }
-	const onBeforeNav = (callback) => { stopTimer(); callback(); startTimer() }
+	const timer = useRef(null)
+	const didManualNav = useRef(false)
+	const onBeforeNav = (callback) => { didManualNav.current = true; callback() }
+	const autoRightNav = () => { if (!didManualNav.current) onRightNav(); didManualNav.current = false }
 
-	useEffect(() => { startTimer() }, [])
+	useEffect(() => { timer.current = setInterval(autoRightNav, 7000); return () => { clearInterval(timer.current) } }, [])
 
 	return (
 		<Wrapper { ...rest } ref={ ref }>
-			<CarouselNavigation onLeftNav={ () => { onBeforeNav(onLeftNav) } } onRightNav={ () => { onBeforeNav(onRightNav) } } onIndicatorSelect={ onIndicatorSelect } pageCount={ pageCount } currentIndex={ currentIndex } />
+			<CarouselNavigation onLeftNav={ () => { onBeforeNav(onLeftNav) } } onRightNav={ () => { onBeforeNav(onRightNav) } }
+				onIndicatorSelect={ (index) => { onBeforeNav(() => { onIndicatorSelect(index) }) } } pageCount={ pageCount } currentIndex={ currentIndex } />
 			{ React.Children.only(children) }
 		</Wrapper >
 	)
