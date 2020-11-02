@@ -33,7 +33,12 @@ class ProductsStore
 	@computed
 	get onSale ()
 	{
-		return this.all.filter(product => (product.originalPrice ?? false) && product.originalPrice > product.price)
+		return this.all.filter(product => (product.originalPrice ?? false) && (product.price < product.originalPrice))
+	}
+
+	findProducts (name)
+	{
+		return this.all.filter(product => product.name.startsWith(name))
 	}
 
 	@action

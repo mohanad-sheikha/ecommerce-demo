@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import ProductsPage from './ProductsPage'
 import ProductPage from './ProductPage'
+import ProductsSearchPage from './ProductsSearchPage'
 import HomePage from './HomePage'
 import AppHeader from './AppHeader'
 import AppFooter from './AppFooter'
@@ -28,7 +29,8 @@ const BreadcrumbsWrapper = styled.div`
 export const routes = [
 	{ path: '/', name: 'Home', children: <HomePage />, exact: true, strict: true },
 	{ path: '/products', name: 'Products', children: <ProductsPage />, exact: true, strict: true },
-	{ path: '/products/:id', name: 'Product', children: <ProductPage />, exact: true, strict: true },
+	{ path: '/products/details/:id', name: 'Product', children: <ProductPage />, exact: true, strict: true },
+	{ path: '/products/search/:name', name: 'Search', children: <ProductsSearchPage />, exact: true, strict: true },
 	{ path: '/contact', name: 'Contact', children: <ContactPage /> },
 	{ path: '/about', name: 'About', children: <AboutPage /> },
 ]

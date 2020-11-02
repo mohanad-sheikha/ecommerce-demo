@@ -1,31 +1,55 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import ProductsSearchInput from './ProductsSearchInput'
+import { Link } from 'react-router-dom'
 
 const Wrapper = styled.header`
-	padding: 0.5rem 1rem;
+	padding: 0.5rem 0;
 	background-color: var(--moe-light-secondary);
 	border-bottom: var(--moe-border-small);
 `
-const NavContainer = styled.nav.attrs(() => ({ className: 'container' }))`
+const Container = styled.div.attrs(() => ({ className: 'container' }))`
+	display: grid;
+	grid-template-columns: min-content auto min-content;
+	grid-gap: 2rem;
+	align-items: center;
+
+	> *
+	{
+		min-width: 0;
+	}
+`
+const NavContainer = styled.nav`
 	display: grid;
 	grid-auto-flow: column;
-	grid-gap: 2rem;
-	justify-content: center;
+	grid-gap: 1rem;
+	min-width: auto !important;
+`
+const ActionGroup = styled.div`
+	display: grid;
+	grid-gap: 1rem;
+	grid-auto-flow: column;
+`
+const Action = styled.button.attrs(() => ({ className: 'btn btn-link' }))`
+	padding: 0;
+	margin: 0;
 `
 
 const AppHeader = () =>
 {
 	return (
 		<Wrapper>
-			<NavContainer>
-				<div>
+			<Container>
+				<NavContainer>
 					<Link to='/'>Home</Link>
-				</div>
-				<div>
 					<Link to='/products'>Products</Link>
-				</div>
-			</NavContainer>
+				</NavContainer>
+				<ProductsSearchInput />
+				<ActionGroup>
+					<Action><i className='fa fa-user'></i></Action>
+					<Action><i className='fa fa-shopping-bag'></i></Action>
+				</ActionGroup>
+			</Container>
 		</Wrapper>
 	)
 }

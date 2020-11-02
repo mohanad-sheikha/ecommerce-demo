@@ -4,6 +4,7 @@ import { routes } from './App'
 import { Link, useRouteMatch } from 'react-router-dom'
 
 const Wrapper = styled.div`
+	font-size: 0.8rem;
 	display: grid;
 	grid-gap: 0.5rem;
 	grid-auto-flow: column;

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import ProductImage from './ProductImage'
 import FeaturedProductInfo from './FeaturedProductInfo'
 import { Link } from 'react-router-dom'
+import { routes } from './App'
 
 const Wrapper = styled(Link)`
 	min-height: 0;
@@ -12,8 +13,10 @@ const Wrapper = styled(Link)`
 
 const FeaturedProduct = ({ product: { id, name, price, originalPrice, imageUrl }, product }) =>
 {
+	const getLink = () => routes.find(route => route.name == 'Product').path.replace(':id', id)
+
 	return (
-		<Wrapper to={ `/products/${ id }` }>
+		<Wrapper to={ getLink() }>
 			<ProductImage product={ product } />
 			<FeaturedProductInfo product={ product } />
 		</Wrapper>

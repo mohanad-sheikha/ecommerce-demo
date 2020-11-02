@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Product from './Product'
 import uniqid from 'uniqid'
 import ProductsStore from '../mobx/ProductsStore'
+import PropTypes from 'prop-types'
 import { useObserver } from 'mobx-react-lite'
 
 const Wrapper = styled.div`
@@ -11,13 +12,23 @@ const Wrapper = styled.div`
 	grid-gap: 1rem;
 `
 
-const Products = () =>
+const Products = ({ products }) =>
 {
 	return useObserver(() => (
 		<Wrapper>
-			{ ProductsStore.all && ProductsStore.all.map(product => <Product key={ product.id } product={ product } />) }
+			{ products && products.map(product => <Product key={ product.id } product={ product } />) }
 		</Wrapper>
 	))
+}
+
+Products.propTypes =
+{
+	products: PropTypes.arrayOf(PropTypes.object)
+}
+
+Products.defaultProps =
+{
+	products: ProductsStore.all
 }
 
 export default Products

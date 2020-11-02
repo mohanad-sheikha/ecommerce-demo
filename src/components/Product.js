@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import ProductFooter from './ProductFooter'
 import ProductImage from './ProductImage'
 import PropTypes from 'prop-types'
+import { routes } from './App'
 import { Link } from 'react-router-dom'
 
 const ProductImageWrapper = styled.div`
@@ -20,12 +21,12 @@ const Wrapper = styled(Link)`
 	color: inherit;
 `
 
-const Product = ({ product }) =>
+const Product = ({ product: { id }, product }) =>
 {
-	const { id } = product
+	const getLink = () => routes.find(route => route.name == 'Product').path.replace(':id', id)
 
 	return (
-		<Wrapper to={ `/products/${ id }` }>
+		<Wrapper to={ getLink() }>
 			<ProductImageWrapper><ProductImage product={ product } /></ProductImageWrapper>
 			<ProductFooterWrapper><ProductFooter product={ product } /></ProductFooterWrapper>
 		</Wrapper>
