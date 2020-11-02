@@ -43,5 +43,13 @@
 		"price": 859.00,
 		"originalPrice": 999.99,
 		"size": "15.6-inch"
+	},
+	{
+		"id": "7",
+		"name": "No Image Test Product",
+		"imageUrl": "https://images-na.ssl-images-amazon.com/images/I",
+		"price": 859.00,
+		"originalPrice": 999.99,
+		"size": "11-inch"
 	}
 ]
