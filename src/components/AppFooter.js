@@ -32,7 +32,7 @@ const AppFooter = () =>
 		<Wrapper>
 			<Container>
 				<NavColumn>
-					<ColumnTitle>Mohanad Abu Sheikha</ColumnTitle>
+					<ColumnTitle>Maux</ColumnTitle>
 					<LinksContainer>
 						<Link to='/about'>About</Link>
 						<Link to='/contact'>Contact</Link>
