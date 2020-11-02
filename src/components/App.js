@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 	background-color: hsl(0, 0%, 90%);
 `
 const Content = styled.div.attrs(() => ({ className: 'container' }))`
-	padding: 1rem;
+	padding: 2rem 1rem;
 	flex: 1;
 `
 const BreadcrumbsWrapper = styled.div`
@@ -29,7 +29,7 @@ const BreadcrumbsWrapper = styled.div`
 export const routes = [
 	{ path: '/', name: 'Home', children: <HomePage />, exact: true, strict: true },
 	{ path: '/products', name: 'Products', children: <ProductsPage />, exact: true, strict: true },
-	{ path: '/products/details/:id', name: 'Product', children: <ProductPage />, exact: true, strict: true },
+	{ path: '/products/details/:id', name: 'Details', children: <ProductPage />, exact: true, strict: true },
 	{ path: '/products/search/:name', name: 'Search', children: <ProductsSearchPage />, exact: true, strict: true },
 	{ path: '/contact', name: 'Contact', children: <ContactPage /> },
 	{ path: '/about', name: 'About', children: <AboutPage /> },
