@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Carousel from './Carousel'
 import FeaturedProduct from './FeaturedProduct'
@@ -14,16 +14,16 @@ const Wrapper = styled.div`
 const FeaturedProducts = () =>
 {
 	const [ index, setIndex ] = useState(0)
-	const getProducts = () => ProductsStore.all.filter(product => (product.originalPrice ?? false))
-	const onLeftNav = (e) => { setIndex(index > 0 ? index - 1 : getProducts().length - 1) }
-	const onRightNav = (e) => { setIndex(index < getProducts().length - 1 ? index + 1 : 0) }
-	const onIndicatorSelect = (index) => { if (index >= 0 && index < getProducts().length) setIndex(index) }
+	const { onSale: products } = ProductsStore
+	const onLeftNav = () => { setIndex(index => index > 0 ? index - 1 : products.length - 1) }
+	const onRightNav = () => { setIndex(index => (index + 1) % products.length) }
+	const onIndicatorSelect = (newIndex) => { setIndex(Math.abs(newIndex) % products.length) }
 
 	return useObserver(() => (
 		<Wrapper>
 			<FeaturedProductsHeader />
-			<Carousel onLeftNav={ onLeftNav } onRightNav={ onRightNav } onIndicatorSelect={ onIndicatorSelect } pageCount={ getProducts().length } currentIndex={ index }>
-				<FeaturedProduct product={ getProducts()[ index ] } />
+			<Carousel onLeftNav={ onLeftNav } onRightNav={ onRightNav } onIndicatorSelect={ onIndicatorSelect } pageCount={ products.length } currentIndex={ index }>
+				<FeaturedProduct product={ products[ index ] } />
 			</Carousel>
 		</Wrapper>
 	))

@@ -30,6 +30,12 @@ class ProductsStore
 		return Object.values(this.byId)
 	}
 
+	@computed
+	get onSale ()
+	{
+		return this.all.filter(product => (product.originalPrice ?? false) && product.originalPrice > product.price)
+	}
+
 	@action
 	initialize ()
 	{
