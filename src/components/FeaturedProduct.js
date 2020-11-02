@@ -13,7 +13,7 @@ const Wrapper = styled(Link)`
 
 const FeaturedProduct = ({ product: { id, name, price, originalPrice, imageUrl }, product }) =>
 {
-	const getLink = () => routes.find(route => route.name == 'Product').path.replace(':id', id)
+	const getLink = () => routes.find(route => route.name == 'Details').path.replace(':id', id)
 
 	return (
 		<Wrapper to={ getLink() }>

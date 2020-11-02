@@ -5,12 +5,21 @@ import Products from './Products'
 import ProductsStore from '../mobx/ProductsStore'
 import { useParams } from 'react-router-dom'
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+	display: grid;
+	grid-auto-flow: row;
+	grid-gap: 1rem;
+	
+	> hr
+	{
+		margin: 0;
+	}
+`
 const RelevantProductsTitle = styled.h4`
-	margin-bottom: 1rem;
+	margin-bottom: 0;
 `
 const OtherProductsTitle = styled.h5`
-	margin-bottom: 1rem;
+	margin-bottom: 0;
 `
 
 const ProductsSearchPage = () =>

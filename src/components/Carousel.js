@@ -11,7 +11,11 @@ const Wrapper = styled.div`
 	background-color: white;
 	padding: 2rem;
 `
-
+const PositionedCarouselNavigation = styled(CarouselNavigation)`
+	position: absolute;
+	top: 2rem; left: 2rem; right: 2rem;
+	z-index: 1;
+`
 const Carousel = forwardRef(({ children, onLeftNav, onRightNav, onIndicatorSelect, pageCount, currentIndex, ...rest }, ref) =>
 {
 	const timer = useRef(null)
@@ -23,7 +27,7 @@ const Carousel = forwardRef(({ children, onLeftNav, onRightNav, onIndicatorSelec
 
 	return (
 		<Wrapper { ...rest } ref={ ref }>
-			<CarouselNavigation onLeftNav={ () => { onBeforeNav(onLeftNav) } } onRightNav={ () => { onBeforeNav(onRightNav) } }
+			<PositionedCarouselNavigation onLeftNav={ () => { onBeforeNav(onLeftNav) } } onRightNav={ () => { onBeforeNav(onRightNav) } }
 				onIndicatorSelect={ (index) => { onBeforeNav(() => { onIndicatorSelect(index) }) } } pageCount={ pageCount } currentIndex={ currentIndex } />
 			{ React.Children.only(children) }
 		</Wrapper >

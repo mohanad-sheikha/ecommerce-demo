@@ -12,15 +12,16 @@ const Wrapper = styled.div`
 	display: grid;
 	grid-auto-flow: row;
 	grid-gap: 1rem;
+
+	> hr
+	{
+		margin: 0;
+	}
 `
 const ProductImageWrapper = styled.div`
 	padding: 2rem;
 	background-color: white;
 	height: 300px;
-`
-const ProductSpecificationsWrapper = styled.div`
-	padding-top: 1rem;
-	border-top: var(--moe-border-medium);
 `
 
 const ProductPage = () =>
@@ -36,9 +37,8 @@ const ProductPage = () =>
 					<ProductImageWrapper>
 						<ProductImage product={ product } />
 					</ProductImageWrapper>
-					<ProductSpecificationsWrapper>
-						<ProductSpecifications product={ product } />
-					</ProductSpecificationsWrapper>
+					<hr />
+					<ProductSpecifications product={ product } />
 				</Wrapper>
 			) : <ProductPageError text="I didn't find that product." />
 			}

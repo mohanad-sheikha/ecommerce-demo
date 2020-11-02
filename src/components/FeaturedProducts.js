@@ -9,6 +9,7 @@ import { useObserver } from 'mobx-react-lite'
 const Wrapper = styled.div`
 	display: grid;
 	grid-template-rows: min-content auto;
+	grid-gap: 1rem;
 `
 
 const FeaturedProducts = () =>

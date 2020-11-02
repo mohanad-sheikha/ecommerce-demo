@@ -37,19 +37,17 @@ class ProductsStore
 		return this.all.filter(product => (product.originalPrice ?? false) && (product.price < product.originalPrice))
 	}
 
-	findFuzzyMatches (value)
-	{
-		const products = new Fuse(this.all, { includeScore: true, keys: [ 'name', 'size', 'price' ] }).search(value)
-		console.log(products)
-		return products
-	}
-
 	@action
 	initialize ()
 	{
 		this.isLoading = true
 		this.byId = testData.reduce((collection, product) => ({ ...collection, [ product.id ]: { ...product } }), {})
 		this.isLoading = false
+	}
+
+	findFuzzyMatches (value)
+	{
+		return new Fuse(this.all, { includeScore: true, keys: [ 'name', 'size', 'price' ] }).search(value)
 	}
 }
 

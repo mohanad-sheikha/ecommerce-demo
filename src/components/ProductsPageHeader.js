@@ -7,13 +7,11 @@ const Wrapper = styled.div`
 	grid-auto-flow: column;
 	grid-gap: 1rem;
 	justify-content: space-between;
-	padding-bottom: 1rem;
 `
 const Title = styled.h4`
 	margin-bottom: 0;
 `
-const Actions = styled.div`
-`
+const Actions = styled.div``
 const SidebarExpandButton = styled.button.attrs(() => ({ className: 'btn btn-link' }))`
 	padding: 0;
 	box-shadow: none !important;

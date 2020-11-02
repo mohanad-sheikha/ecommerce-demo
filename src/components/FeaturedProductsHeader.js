@@ -7,7 +7,6 @@ const Wrapper = styled.div`
 	grid-gap: 1rem;
 	align-items: baseline;
 	justify-content: space-between;
-	padding-bottom: 1rem;
 `
 const Title = styled.h4`
 	margin-bottom: 0;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import IndicatorGroup from './IndicatorGroup'
@@ -11,15 +11,15 @@ const Wrapper = styled.div`
 	align-items: center;
 `
 
-const CarouselNavigation = ({ onLeftNav, onRightNav, onIndicatorSelect, pageCount, currentIndex }) =>
+const CarouselNavigation = forwardRef(({ onLeftNav, onRightNav, onIndicatorSelect, pageCount, currentIndex, ...rest }, ref) =>
 {
 	return (
-		<Wrapper>
+		<Wrapper { ...rest } ref={ ref }>
 			<NavigationArrows onLeftNav={ onLeftNav } onRightNav={ onRightNav } />
 			<IndicatorGroup onSelect={ onIndicatorSelect } count={ pageCount } currentIndex={ currentIndex } />
 		</Wrapper>
 	)
-}
+})
 
 CarouselNavigation.propTypes =
 {
