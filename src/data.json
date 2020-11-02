@@ -28,5 +28,20 @@
 		"imageUrl": "https://www.lenovo.com/medias/lenovo-laptop-yoga-c940-hero-15.png?context=bWFzdGVyfHJvb3R8MTczMjIzOHxpbWFnZS9wbmd8aGM1L2hiNS8xMDU0NzY4MjM0NDk5MC5wbmd8MDc5ZGFkMzBiYTk0NTgxYmUzNTdhYTZjYTViOTk1NmFhN2JlMmRlMmJjOTkwNTM4NjZjZDQ5Njc5N2Q2ZmY0YQ",
 		"price": 599.99,
 		"size": "15.6-inch"
+	},
+	{
+		"id": "5",
+		"name": "14-inch Dell Vostro 5401",
+		"imageUrl": "https://i.dell.com/is/image/DellContent//content/dam/global-site-design/product_images/dell_client_products/notebooks/vostro_notebooks/14_5401/pdp/laptop-vostro-14-5401-nt-pdp-gallery-504x350.jpg?qlt=95&fit=constrain,1&hei=350&wid=504&fmt=jpg&wid=570&hei=400",
+		"price": 659.00,
+		"size": "14-inch"
+	},
+	{
+		"id": "6",
+		"name": "15.6-inch Acer Aspire E",
+		"imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71HaIH7W5gL._AC_SX466_.jpg",
+		"price": 859.00,
+		"originalPrice": 999.99,
+		"size": "15.6-inch"
 	}
 ]
