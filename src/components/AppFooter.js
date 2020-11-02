@@ -13,7 +13,7 @@ const ColumnTitle = styled.h6`
 const LinksContainer = styled.div`
 	display: grid;
 	grid-auto-flow: row;
-	grid-gap: 0.20rem;
+	grid-gap: 0.25rem;
 `
 const NavColumn = styled.div`
 	display: flex;
@@ -23,7 +23,7 @@ const Container = styled.div.attrs(() => ({ className: 'container' }))`
 	display: grid;
 	grid-template-columns: auto auto;
 	grid-gap: 2rem;
-	justify-content: center;
+	justify-content: start;
 `
 
 const AppFooter = () =>
