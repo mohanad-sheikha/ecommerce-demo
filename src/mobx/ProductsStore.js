@@ -9,6 +9,7 @@
  */
 
 import { observable, action, computed } from 'mobx'
+import Fuse from 'fuse.js'
 import testData from '../data.json'
 
 class ProductsStore
@@ -36,9 +37,11 @@ class ProductsStore
 		return this.all.filter(product => (product.originalPrice ?? false) && (product.price < product.originalPrice))
 	}
 
-	findProducts (name)
+	findFuzzyMatches (value)
 	{
-		return this.all.filter(product => product.name.startsWith(name))
+		const products = new Fuse(this.all, { includeScore: true, keys: [ 'name', 'size', 'price' ] }).search(value)
+		console.log(products)
+		return products
 	}
 
 	@action
