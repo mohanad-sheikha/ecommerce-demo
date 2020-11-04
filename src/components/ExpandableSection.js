@@ -9,7 +9,6 @@ const Wrapper = styled.div`
 const Title = styled.h6`
 `
 const ExpandButton = styled.button.attrs(() => ({ className: 'btn btn-link' }))`
-	padding: 0;
 	box-shadow: none !important;
 `
 const Header = styled.div`
@@ -39,7 +38,7 @@ const ExpandableSection = ({ title, children }) =>
 			<Header>
 				<Title>{ title }</Title>
 				<ExpandButton onClick={ toggleExpanded }>
-					<i className={ `fas fa-sm fa-${ isExpanded ? 'minus' : 'plus' }` }></i>
+					<i className={ `fas fa-sm fa-${ isExpanded ? 'chevron-down' : 'chevron-up' }` }></i>
 				</ExpandButton>
 			</Header>
 			<Container isExpanded={ isExpanded }>
