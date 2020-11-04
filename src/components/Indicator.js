@@ -1,13 +1,12 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const Wrapper = styled.button.attrs(() => ({ className: 'btn btn-link' }))`
-	padding: 0;
 	margin: 0;
 	width: 10px;
 	height: 10px;
-	border-radius: 50%;
+	border-radius: 50rem;
 	transition: background-color 150ms;
 	background-color: var(--moe-light-secondary);
 
@@ -16,12 +15,10 @@ const Wrapper = styled.button.attrs(() => ({ className: 'btn btn-link' }))`
 	`}
 `
 
-const Indicator = ({ isActive, onSelect }) =>
+const Indicator = forwardRef(({ isActive, onSelect, ...rest }, ref) =>
 {
-	return (
-		<Wrapper isActive={ isActive } onClick={ onSelect }></Wrapper>
-	)
-}
+	return <Wrapper { ...rest } ref={ ref } isActive={ isActive } onClick={ onSelect }></Wrapper>
+})
 
 Indicator.propTypes =
 {
