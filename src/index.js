@@ -13,7 +13,9 @@ const GlobalStyle = createGlobalStyle`
 	.btn-link {
 		box-shadow: none;
 		outline: none;
+		padding: 0;
 		border: none;
+		line-height: 0;
 	}
 	body
 	{
