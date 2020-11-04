@@ -40,8 +40,10 @@ const ProductsSearchPage = () =>
 
 	return (
 		<Wrapper>
-			<RelevantProductsTitle>Showing results for "{ name }"</RelevantProductsTitle>
-			<Products products={ relevantProducts } />
+			{ relevantProducts?.length > 0 && <Fragment>
+				<RelevantProductsTitle>Showing results for "{ name }"</RelevantProductsTitle>
+				<Products products={ relevantProducts } />
+			</Fragment> }
 			{ otherProducts?.length > 0 && <Fragment>
 				<hr />
 				<OtherProductsTitle>Other results</OtherProductsTitle>

@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from 'react'
 import ProductsPageHeader from './ProductsPageHeader'
-import ProductsPageSidebar from './ProductsPageSidebar'
 import Products from './Products'
 import styled from 'styled-components'
+import ProductsPageFilter from './ProductsPageFilter'
 
 const Wrapper = styled.div`
 	display: grid;
@@ -17,16 +17,14 @@ const SecondRow = styled.div`
 
 const ProductsPage = () =>
 {
-	const [ isSidebarVisible, setIsSidebarVisible ] = useState(true)
-	const toggleSidebar = () => { setIsSidebarVisible(!isSidebarVisible) }
+	const [ isFilterVisible, setIsFilterVisible ] = useState(true)
+	const toggleFilter = () => { setIsFilterVisible(!isFilterVisible) }
 
 	return (
 		<Wrapper>
-			<ProductsPageHeader isSidebarVisible={ isSidebarVisible } toggleSidebar={ toggleSidebar } />
-			<SecondRow>
-				<Products />
-				<ProductsPageSidebar isVisible={ isSidebarVisible } />
-			</SecondRow>
+			<ProductsPageHeader isFilterVisible={ isFilterVisible } toggleFilter={ toggleFilter } />
+			<ProductsPageFilter isVisible={ isFilterVisible } />
+			<Products />
 		</Wrapper>
 	)
 }

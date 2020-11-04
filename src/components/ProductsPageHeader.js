@@ -12,20 +12,19 @@ const Title = styled.h4`
 	margin-bottom: 0;
 `
 const Actions = styled.div``
-const SidebarExpandButton = styled.button.attrs(() => ({ className: 'btn btn-link' }))`
-	padding: 0;
+const FilterExpandButton = styled.button.attrs(() => ({ className: 'btn btn-link' }))`
 	box-shadow: none !important;
 `
 
-const ProductsPageHeader = ({ isSidebarVisible, toggleSidebar }) =>
+const ProductsPageHeader = ({ isFilterVisible, toggleFilter }) =>
 {
 	return (
 		<Wrapper>
 			<Title>Browse Products</Title>
 			<Actions>
-				<SidebarExpandButton onClick={ toggleSidebar }>
-					<i className={ `fa fa-sm fa-${ isSidebarVisible ? 'chevron-right' : 'chevron-left' }` }></i>
-				</SidebarExpandButton>
+				<FilterExpandButton onClick={ toggleFilter }>
+					<i className={ `fa fa-sm fa-${ isFilterVisible ? 'chevron-right' : 'chevron-left' }` }></i>
+				</FilterExpandButton>
 			</Actions>
 		</Wrapper>
 	)
@@ -33,13 +32,13 @@ const ProductsPageHeader = ({ isSidebarVisible, toggleSidebar }) =>
 
 ProductsPageHeader.propTypes =
 {
-	isSidebarVisible: PropTypes.bool,
-	toggleSidebar: PropTypes.func
+	isFilterVisible: PropTypes.bool,
+	toggleFilter: PropTypes.func
 }
 
 ProductsPageHeader.defaultProps =
 {
-	isSidebarVisible: true
+	isFilterVisible: true
 }
 
 export default ProductsPageHeader

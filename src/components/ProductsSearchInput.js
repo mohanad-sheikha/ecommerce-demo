@@ -12,6 +12,7 @@ const Input = styled.input`
 	border: none;
 	padding: 0.25rem 0.5rem;
 	border-radius: 0.25rem;
+	min-width: 0;
 `
 
 const ProductsSearchInput = () =>
@@ -20,12 +21,15 @@ const ProductsSearchInput = () =>
 	const history = useHistory()
 	const inputRef = useRef(null)
 	const triggerKey = '/', avoidedTags = [ 'input', 'textarea' ]
-	const getLink = () => routes.find(route => route.name == 'Search').path.replace(':name', value)
+	const getProductSearchLink = () => routes.find(route => route.name == 'Search')?.path.replace(':name', value)
+	const getProductsLink = () => routes.find(route => route.name == 'Products')?.path
 	const canOverrideFocus = () => !avoidedTags.includes(document.activeElement.tagName)
 	const onChange = (e) => { setValue(e.target.value) }
 	const onKeyDown = (e) =>
 	{
-		if (e.key == 'Enter') history.push(getLink())
+		if (e.key == 'Enter')
+			if (value) history.push(getProductSearchLink())
+			else history.push(getProductsLink())
 		else if (e.key == 'Escape') inputRef.current.blur()
 	}
 	const onGlobalKeyDown = (e) =>
@@ -41,7 +45,7 @@ const ProductsSearchInput = () =>
 
 	return (
 		<Wrapper>
-			<Input ref={ inputRef } value={ value } placeholder={ `Press \'${ triggerKey }\' to search` } onChange={ onChange } onKeyDown={ onKeyDown } />
+			<Input ref={ inputRef } value={ value } placeholder='Search' onChange={ onChange } onKeyDown={ onKeyDown } />
 		</Wrapper>
 	)
 }

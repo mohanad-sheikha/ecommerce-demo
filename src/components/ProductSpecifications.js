@@ -4,11 +4,10 @@ import PropTypes from 'prop-types'
 
 const Wrapper = styled.dl`
 	display: grid;
-	grid-template-columns: min-content minmax(min-content, 300px);
+	grid-template-columns: min-content minmax(min-content, 400px);
 	grid-row-gap: 0.5rem;
 	grid-column-gap: 2rem;
 	margin: 0;
-	align-items: baseline;
 `
 const Label = styled.dt`
 	font-weight: 400;
@@ -19,7 +18,7 @@ const Value = styled.dd`
 	line-break: anywhere;
 	color: var(--bs-secondary);
 	display: -webkit-box;
-	-webkit-line-clamp: 2;
+	-webkit-line-clamp: 1;
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 `
