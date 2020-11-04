@@ -41,7 +41,7 @@ class ProductsStore
 	initialize ()
 	{
 		this.isLoading = true
-		this.byId = testData.reduce((collection, product) => ({ ...collection, [ product.id ]: { ...product } }), {})
+		this.byId = testData.reduce((collection, product) => ({ ...collection, [ String(product.id) ]: { ...product } }), {})
 		this.isLoading = false
 	}
 
