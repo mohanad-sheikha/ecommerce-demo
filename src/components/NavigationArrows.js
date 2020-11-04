@@ -8,7 +8,6 @@ const Wrapper = styled.div`
 	grid-template-columns: min-content min-content;
 `
 const ArrowButton = styled.button.attrs(() => ({ className: 'btn btn-link' }))`
-	padding: 0;
 	z-index: 1;
 	height: 32px;
 	width: 32px;

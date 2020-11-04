@@ -23,10 +23,10 @@ const Wrapper = styled(Link)`
 
 const Product = ({ product: { id }, product }) =>
 {
-	const getLink = () => routes.find(route => route.name == 'Details').path.replace(':id', id)
+	const getProductDetailsLink = () => routes.find(route => route.name == 'Details').path.replace(':id', id)
 
 	return (
-		<Wrapper to={ getLink() }>
+		<Wrapper to={ getProductDetailsLink() }>
 			<ProductImageWrapper><ProductImage product={ product } /></ProductImageWrapper>
 			<ProductFooterWrapper><ProductFooter product={ product } /></ProductFooterWrapper>
 		</Wrapper>
