@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import styled from 'styled-components'
 import ProductsPage from './ProductsPage'
 import ProductPage from './ProductPage'
 import ProductsSearchPage from './ProductsSearchPage'
@@ -9,10 +10,10 @@ import AppFooter from './AppFooter'
 import AboutPage from './AboutPage'
 import ContactPage from './ContactPage'
 import Breadcrumbs from './Breadcrumbs'
-import styled from 'styled-components'
+import CartPage from './CartPage'
+import UserPage from './UserPage'
 
 const Wrapper = styled.div`
-	width: 100vw;
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
@@ -31,6 +32,8 @@ export const routes = [
 	{ path: '/products', name: 'Products', children: <ProductsPage />, exact: true, strict: true },
 	{ path: '/products/details/:id', name: 'Details', children: <ProductPage />, exact: true, strict: true },
 	{ path: '/products/search/:name', name: 'Search', children: <ProductsSearchPage />, exact: true, strict: true },
+	{ path: '/cart', name: 'Cart', children: <CartPage /> },
+	{ path: '/user', name: 'User', children: <UserPage /> },
 	{ path: '/contact', name: 'Contact', children: <ContactPage /> },
 	{ path: '/about', name: 'About', children: <AboutPage /> },
 ]
