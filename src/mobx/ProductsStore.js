@@ -8,36 +8,41 @@
  * @property {String} imageUrl
  */
 
-import { observable, action, computed } from 'mobx'
+import { makeObservable, observable, computed, action } from 'mobx'
 import Fuse from 'fuse.js'
 import testData from '../data.json'
 
 class ProductsStore
 {
-	@observable byId = {}
-	@observable isLoading = false
+	byId = {}
+	isLoading = false
 
 	constructor ()
 	{
+		makeObservable(this, {
+			byId: observable,
+			isLoading: observable,
+			all: computed,
+			onSale: computed,
+			initialize: action
+		})
+
 		this.initialize()
 	}
 
 	/**
 	 * @returns {[Product]} An array of all products.
 	 */
-	@computed
 	get all ()
 	{
 		return Object.values(this.byId)
 	}
 
-	@computed
 	get onSale ()
 	{
 		return this.all.filter(product => (product.originalPrice ?? false) && (product.price < product.originalPrice))
 	}
 
-	@action
 	initialize ()
 	{
 		this.isLoading = true
