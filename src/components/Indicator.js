@@ -6,7 +6,7 @@ const Wrapper = styled.button.attrs(() => ({ className: 'btn btn-link' }))`
 	margin: 0;
 	width: 10px;
 	height: 10px;
-	border-radius: 50rem;
+	border-radius: 50% !important;
 	transition: background-color 150ms;
 	background-color: var(--moe-light-secondary);
 

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import Currency from './Currency'
 import ProductPrice from './ProductPrice'
 import PropTypes from 'prop-types'
 

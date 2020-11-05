@@ -67,15 +67,6 @@ const ProductsPageFilter = ({ isVisible }) =>
 				</SectionHeader>
 				<Select value={ checkedBrandOption } options={ brandOptions } onChange={ (e) => { setCheckedBrandOption(e.target.value) } }></Select>
 			</Section>
-			<Section>
-				<SectionHeader>
-					<SectionTitle>Brand</SectionTitle>
-					{ checkedBrandOption.length > 0 && <Fragment>
-						<SectionClearButton onClick={ () => { setCheckedBrandOption('') } }><i className='fa fa-sm fa-times'></i></SectionClearButton>
-					</Fragment> }
-				</SectionHeader>
-				<Select value={ checkedBrandOption } options={ brandOptions } onChange={ (e) => { setCheckedBrandOption(e.target.value) } }></Select>
-			</Section>
 		</Wrapper>
 	)
 }

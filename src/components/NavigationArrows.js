@@ -11,7 +11,7 @@ const ArrowButton = styled.button.attrs(() => ({ className: 'btn btn-link' }))`
 	z-index: 1;
 	height: 32px;
 	width: 32px;
-	border-radius: 50%;
+	border-radius: 50% !important;
 	background-color: var(--moe-light-secondary);
 `
 const ArrowWrapper = styled.div`

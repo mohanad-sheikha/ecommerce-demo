@@ -6,6 +6,7 @@ import NavigationArrows from './NavigationArrows'
 
 const Wrapper = styled.div`
 	display: grid;
+	width: fit-content;
 	grid-gap: 0.5rem;
 	grid-template-columns: min-content min-content;
 	align-items: center;

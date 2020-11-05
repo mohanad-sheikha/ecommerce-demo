@@ -9,7 +9,6 @@ const Wrapper = styled.div`
 	display: grid;
 	min-height: 0;
 	background-color: white;
-	padding: 2rem;
 `
 const PositionedCarouselNavigation = styled(CarouselNavigation)`
 	position: absolute;

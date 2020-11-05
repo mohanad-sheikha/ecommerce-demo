@@ -9,6 +9,7 @@ import { routes } from './App'
 const Wrapper = styled(Link)`
 	min-height: 0;
 	position: relative;
+	padding: 2rem;
 `
 
 const FeaturedProduct = ({ product: { id, name, price, originalPrice, imageUrl }, product }) =>

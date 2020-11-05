@@ -4,14 +4,17 @@
 		"@babel/preset-react"
 	],
 	"plugins": [
+		// [
+		// 	"@babel/plugin-proposal-decorators",
+		// 	{
+		// 		"legacy": true
+		// 	}
+		// ],
 		[
-			"@babel/plugin-proposal-decorators",
+			"@babel/proposal-class-properties",
 			{
-				"legacy": true
+				"loose": false
 			}
-		],
-		[
-			"@babel/proposal-class-properties"
 		],
 		[
 			"babel-plugin-styled-components"

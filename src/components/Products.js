@@ -1,10 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import Product from './Product'
-import uniqid from 'uniqid'
 import ProductsStore from '../mobx/ProductsStore'
 import PropTypes from 'prop-types'
-import { useObserver } from 'mobx-react-lite'
 
 const Wrapper = styled.div`
 	display: grid;
@@ -14,11 +12,11 @@ const Wrapper = styled.div`
 
 const Products = ({ products }) =>
 {
-	return useObserver(() => (
+	return (
 		<Wrapper>
 			{ products && products.map(product => <Product key={ product.id } product={ product } />) }
 		</Wrapper>
-	))
+	)
 }
 
 Products.propTypes =
