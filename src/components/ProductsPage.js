@@ -17,7 +17,7 @@ const SecondRow = styled.div`
 
 const ProductsPage = () =>
 {
-	const [ isFilterVisible, setIsFilterVisible ] = useState(true)
+	const [ isFilterVisible, setIsFilterVisible ] = useState(false)
 	const toggleFilter = () => { setIsFilterVisible(!isFilterVisible) }
 
 	return (
