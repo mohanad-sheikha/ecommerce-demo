@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import ProductPrice from './ProductPrice'
 import PropTypes from 'prop-types'
 import CartStore from '../mobx/CartStore'
-import { useObserver } from 'mobx-react-lite'
+import { observer } from 'mobx-react-lite'
 
 const Wrapper = styled.div`
 	display: grid;
@@ -35,7 +35,7 @@ const ProductPageHeader = ({ product: { name, price, originalPrice }, product })
 {
 	const addToCart = () => { CartStore.addProduct(product) }
 
-	return useObserver(() => (
+	return (
 		<Wrapper>
 			<Title>{ name }</Title>
 			<SecondRow>
@@ -43,7 +43,7 @@ const ProductPageHeader = ({ product: { name, price, originalPrice }, product })
 				<Button onClick={ addToCart } hasLeftIcon><i className='fa fa-plus'></i> Add to Cart</Button>
 			</SecondRow>
 		</Wrapper>
-	))
+	)
 }
 
 ProductPageHeader.propTypes =
@@ -55,4 +55,4 @@ ProductPageHeader.propTypes =
 	}).isRequired
 }
 
-export default ProductPageHeader
+export default observer(ProductPageHeader)

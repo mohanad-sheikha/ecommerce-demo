@@ -6,7 +6,8 @@ import ProductPageHeader from './ProductPageHeader'
 import ProductImage from './ProductImage'
 import ProductSpecifications from './ProductSpecifications'
 import { useParams } from 'react-router-dom'
-import { useObserver } from 'mobx-react-lite'
+import { observer } from 'mobx-react-lite'
+import ProductCartActions from './ProductCartActions'
 
 const Wrapper = styled.div`
 	display: grid;
@@ -22,6 +23,7 @@ const ProductImageWrapper = styled.div`
 	padding: 2rem;
 	background-color: white;
 	height: 300px;
+	position: relative;
 `
 
 const ProductPage = () =>
@@ -29,12 +31,13 @@ const ProductPage = () =>
 	const { id } = useParams()
 	const product = ProductsStore.byId[ String(id) ]
 
-	return useObserver(() => (
+	return (
 		<Fragment>
 			{ product ? (
 				<Wrapper>
 					<ProductPageHeader product={ product } />
 					<ProductImageWrapper>
+						<ProductCartActions product={ product } />
 						<ProductImage product={ product } />
 					</ProductImageWrapper>
 					<hr />
@@ -43,7 +46,7 @@ const ProductPage = () =>
 			) : <ProductPageError text="I didn't find that product." />
 			}
 		</Fragment>
-	))
+	)
 }
 
-export default ProductPage
+export default observer(ProductPage)

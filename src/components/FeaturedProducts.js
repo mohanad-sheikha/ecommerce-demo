@@ -4,7 +4,7 @@ import Carousel from './Carousel'
 import FeaturedProduct from './FeaturedProduct'
 import FeaturedProductsHeader from './FeaturedProductsHeader'
 import ProductsStore from '../mobx/ProductsStore'
-import { useObserver } from 'mobx-react-lite'
+import { observer } from 'mobx-react-lite'
 
 const Wrapper = styled.div`
 	display: grid;
@@ -20,14 +20,14 @@ const FeaturedProducts = () =>
 	const onRightNav = () => { setIndex(index => (index + 1) % products.length) }
 	const onIndicatorSelect = (newIndex) => { setIndex(Math.abs(newIndex) % products.length) }
 
-	return useObserver(() => (
+	return (
 		<Wrapper>
 			<FeaturedProductsHeader />
 			<Carousel onLeftNav={ onLeftNav } onRightNav={ onRightNav } onIndicatorSelect={ onIndicatorSelect } pageCount={ products.length } currentIndex={ index }>
 				<FeaturedProduct product={ products[ index ] } />
 			</Carousel>
 		</Wrapper>
-	))
+	)
 }
 
-export default FeaturedProducts
+export default observer(FeaturedProducts)

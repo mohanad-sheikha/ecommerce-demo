@@ -5,7 +5,7 @@ import NotificationIndicator from './NotificationIndicator'
 import CartStore from '../mobx/CartStore'
 import { Link } from 'react-router-dom'
 import { routes } from './App'
-import { useObserver } from 'mobx-react-lite'
+import { observer } from 'mobx-react-lite'
 
 const Wrapper = styled.header`
 	padding: 0.5rem 0;
@@ -41,22 +41,16 @@ const AppHeader = () =>
 	const getUserLink = () => routes.find(route => route.name == 'User')?.path
 	const getCartLink = () => routes.find(route => route.name == 'Cart')?.path
 
-	return useObserver(() => (
+	return (
 		<Wrapper>
 			<Container>
 				<IconLinkGroup>
-					<IconLink to={ getHomeLink() } title='Home'>
-						<i className='fa fa-home'></i>
-					</IconLink>
-					<IconLink to={ getProductsLink() } title='Products'>
-						<i className='fa fa-th-large'></i>
-					</IconLink>
+					<IconLink to={ getHomeLink() } title='Home'><i className='fa fa-home'></i></IconLink>
+					<IconLink to={ getProductsLink() } title='Products'><i className='fa fa-th-large'></i></IconLink>
 				</IconLinkGroup>
 				<ProductsSearchInput />
 				<IconLinkGroup>
-					<IconLink to={ getUserLink() } title='User'>
-						<i className='fa fa-user'></i>
-					</IconLink>
+					<IconLink to={ getUserLink() } title='User'><i className='fa fa-user'></i></IconLink>
 					<IconLink to={ getCartLink() } title='Cart'>
 						<NotificationIndicator isVisible={ CartStore.hasProducts } variant='success' />
 						<i className='fa fa-shopping-bag'></i>
@@ -64,7 +58,7 @@ const AppHeader = () =>
 				</IconLinkGroup>
 			</Container>
 		</Wrapper>
-	))
+	)
 }
 
-export default AppHeader
+export default observer(AppHeader)
