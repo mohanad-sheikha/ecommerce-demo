@@ -38,7 +38,7 @@ const AppFooter = () =>
 		<Wrapper>
 			<Container>
 				<NavColumn>
-					<ColumnTitle>Maux</ColumnTitle>
+					<ColumnTitle>Meaux</ColumnTitle>
 					<LinksContainer>
 						<Link to={ getAboutLink() }>About</Link>
 						<Link to={ getContactLink() }>Contact</Link>
