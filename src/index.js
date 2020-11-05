@@ -1,9 +1,14 @@
 import React, { Fragment } from 'react'
 import ReactDOM from 'react-dom'
 import App from './components/App'
+import 'tippy.js/dist/tippy.css'
+import 'tippy.js/themes/light.css'
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
+	* {
+		user-select: none;
+	}
 	a {
 		text-decoration: none;
 	}
@@ -15,7 +20,9 @@ const GlobalStyle = createGlobalStyle`
 		outline: none;
 		padding: 0;
 		border: none;
-		line-height: 0;
+		line-height: 1;
+		text-decoration: none;
+		border-radius: 0;
 	}
 	body
 	{
