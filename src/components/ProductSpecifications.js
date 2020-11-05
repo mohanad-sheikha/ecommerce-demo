@@ -1,27 +1,6 @@
 import React, { Fragment } from 'react'
-import styled from 'styled-components'
 import PropTypes from 'prop-types'
-
-const Wrapper = styled.dl`
-	display: grid;
-	grid-template-columns: min-content minmax(min-content, 400px);
-	grid-row-gap: 0.5rem;
-	grid-column-gap: 2rem;
-	margin: 0;
-`
-const Label = styled.dt`
-	font-weight: 400;
-	white-space: nowrap;
-`
-const Value = styled.dd`
-	margin: 0;
-	line-break: anywhere;
-	color: var(--bs-secondary);
-	display: -webkit-box;
-	-webkit-line-clamp: 1;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
-`
+import DescriptionList, { Label, Value } from './DescriptionList'
 
 const ProductSpecifications = ({ product }) =>
 {
@@ -35,14 +14,14 @@ const ProductSpecifications = ({ product }) =>
 	}
 
 	return (
-		<Wrapper>
+		<DescriptionList>
 			{ product && Object.entries(product).map(([ label, value ]) => (
 				<Fragment key={ label }>
 					<Label>{ humanLabels[ label ] || label }</Label>
 					<Value>{ value }</Value>
 				</Fragment>
 			)) }
-		</Wrapper>
+		</DescriptionList>
 	)
 }
 
