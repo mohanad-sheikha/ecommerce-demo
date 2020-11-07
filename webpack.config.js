@@ -33,5 +33,6 @@ module.exports = {
 		historyApiFallback: {
 			disableDotRule: true
 		}
-	}
+	},
+	devtool: 'source-map'
 }
