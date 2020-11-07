@@ -1,17 +1,14 @@
-import React, { Fragment, useState } from 'react'
+import React, { useState } from 'react'
 import ProductsPageHeader from './ProductsPageHeader'
 import Products from './Products'
 import styled from 'styled-components'
 import ProductsPageFilter from './ProductsPageFilter'
+import ProductsStore from '../mobx/ProductsStore'
+import { observer } from 'mobx-react-lite'
 
 const Wrapper = styled.div`
 	display: grid;
 	grid-auto-flow: row;
-	grid-gap: 1rem;
-`
-const SecondRow = styled.div`
-	display: grid;
-	grid-auto-flow: column;
 	grid-gap: 1rem;
 `
 
@@ -24,9 +21,9 @@ const ProductsPage = () =>
 		<Wrapper>
 			<ProductsPageHeader isFilterVisible={ isFilterVisible } toggleFilter={ toggleFilter } />
 			<ProductsPageFilter isVisible={ isFilterVisible } />
-			<Products />
+			<Products products={ ProductsStore.all } isLoading={ ProductsStore.isLoading } />
 		</Wrapper>
 	)
 }
 
-export default ProductsPage
+export default observer(ProductsPage)

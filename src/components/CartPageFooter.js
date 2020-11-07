@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Currency from './Currency'
 import CartStore from '../mobx/CartStore'
 import DescriptionList, { Label, Value } from './DescriptionList'
+import { observer } from 'mobx-react-lite'
 
 const CustomLabel = styled(Label)`
 	color: var(--bs-secondary);
@@ -40,4 +41,4 @@ const CartPageFooter = () =>
 	)
 }
 
-export default CartPageFooter
+export default observer(CartPageFooter)

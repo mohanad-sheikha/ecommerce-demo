@@ -15,13 +15,12 @@ import UserPage from './UserPage'
 
 const Wrapper = styled.div`
 	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-template-rows: min-content auto min-content;
 	background-color: hsl(0, 0%, 90%);
 `
 const Content = styled.div.attrs(() => ({ className: 'container' }))`
 	padding: 2rem 1rem;
-	flex: 1;
 `
 const BreadcrumbsWrapper = styled.div`
 	margin-bottom: 0.5rem;

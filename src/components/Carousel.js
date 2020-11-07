@@ -1,5 +1,4 @@
 import React, { forwardRef, Fragment, useEffect, useRef } from 'react'
-import IndicatorGroup from './IndicatorGroup'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import CarouselNavigation from './CarouselNavigation'

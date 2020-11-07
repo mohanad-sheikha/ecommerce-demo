@@ -9,20 +9,21 @@
  */
 
 import { makeObservable, observable, computed, action } from 'mobx'
-import Fuse from 'fuse.js'
-import testData from '../data.json'
+import { functions } from '../firebase'
 
 class ProductsStore
 {
-	byId = {}
-	isLoading = false
+	all = []
+	isLoading = true
+	isSearching = false
 
 	constructor ()
 	{
 		makeObservable(this, {
-			byId: observable,
+			all: observable,
 			isLoading: observable,
-			all: computed,
+			isSearching: observable,
+			byId: computed,
 			onSale: computed,
 			initialize: action
 		})
@@ -33,9 +34,9 @@ class ProductsStore
 	/**
 	 * @returns {[Product]} An array of all products.
 	 */
-	get all ()
+	get byId ()
 	{
-		return Object.values(this.byId)
+		return this.all.reduce((object, product) => ({ ...object, [ product.id ]: { ...product } }), {})
 	}
 
 	get onSale ()
@@ -46,13 +47,19 @@ class ProductsStore
 	initialize ()
 	{
 		this.isLoading = true
-		this.byId = testData.reduce((collection, product) => ({ ...collection, [ String(product.id) ]: { ...product } }), {})
-		this.isLoading = false
+		functions.httpsCallable('getAllProducts')().then(({ data }) =>
+		{
+			if (data) this.all = data
+		}).finally(() => { this.isLoading = false })
 	}
 
 	findFuzzyMatches (value)
 	{
-		return new Fuse(this.all, { includeScore: true, keys: [ 'name', 'size', 'price' ] }).search(value)
+		this.isSearching = true
+		return functions.httpsCallable('findFuzzyMatches')({ value }).then(({ data }) =>
+		{
+			if (data) return data
+		}).finally(() => { this.isSearching = false })
 	}
 }
 

@@ -5,9 +5,10 @@ import ProductPageError from './ProductPageError'
 import ProductPageHeader from './ProductPageHeader'
 import ProductImage from './ProductImage'
 import ProductSpecifications from './ProductSpecifications'
+import ProductCartActions from './ProductCartActions'
+import Skeleton from 'react-loading-skeleton'
 import { useParams } from 'react-router-dom'
 import { observer } from 'mobx-react-lite'
-import ProductCartActions from './ProductCartActions'
 
 const Wrapper = styled.div`
 	display: grid;
@@ -25,26 +26,33 @@ const ProductImageWrapper = styled.div`
 	height: 300px;
 	position: relative;
 `
+const loadingState = <Fragment>
+	<Skeleton width={ 200 } />
+	<Skeleton width={ 100 } />
+</Fragment>
 
 const ProductPage = () =>
 {
 	const { id } = useParams()
-	const product = ProductsStore.byId[ String(id) ]
+	const product = ProductsStore.byId[ id ]
+	const { isLoading } = ProductsStore
 
 	return (
 		<Fragment>
-			{ product ? (
-				<Wrapper>
-					<ProductPageHeader product={ product } />
-					<ProductImageWrapper>
-						<ProductCartActions product={ product } />
-						<ProductImage product={ product } />
-					</ProductImageWrapper>
-					<hr />
-					<ProductSpecifications product={ product } />
-				</Wrapper>
-			) : <ProductPageError text="I didn't find that product." />
-			}
+			{ isLoading ? loadingState : <Fragment>
+				{ product ? (
+					<Wrapper>
+						<ProductPageHeader product={ product } />
+						<ProductImageWrapper>
+							<ProductCartActions product={ product } />
+							<ProductImage product={ product } />
+						</ProductImageWrapper>
+						<hr />
+						<ProductSpecifications product={ product } />
+					</Wrapper>
+				) : <ProductPageError text="I didn't find that product." />
+				}
+			</Fragment> }
 		</Fragment>
 	)
 }

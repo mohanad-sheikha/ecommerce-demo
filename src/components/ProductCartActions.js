@@ -6,30 +6,31 @@ import { observer } from 'mobx-react-lite'
 
 const Wrapper = styled.div`
 	position: absolute;
-	top: 1rem; right: 1rem; bottom: 1rem; left: 1rem;
-	display: flex;
+	top: 1rem; right: 1rem;
+	display: grid;
+	grid-template-columns: min-content auto min-content;
+	grid-gap: 1rem;
 	opacity: 0;
-	pointer-events: none;
+	background-color: var(--moe-light-secondary);
+	z-index: 1;
+	padding: 0.25rem 1rem;
+	border-radius: 0.5rem;
 	transition: opacity 300ms;
+	pointer-events: none;
 
 	${ props => props.isVisible && `
 		opacity: 1;
 		pointer-events: auto;
 	`}
 `
-const Container = styled.div`
-	margin-left: auto;
-	margin-bottom: auto;
-	background-color: var(--moe-light-secondary);
-	display: grid;
-	grid-template-columns: min-content auto min-content;
-	grid-gap: 1rem;
-	z-index: 1;
-	padding: 0.25rem 1rem;
-	border-radius: 50rem;
-`
 const Action = styled.button.attrs(() => ({ className: 'btn btn-link' }))`
 	box-shadow: none !important;
+	display: flex;
+
+	> i
+	{
+		margin: auto;
+	}
 `
 
 const ProductCartActions = ({ product }) =>
@@ -41,15 +42,13 @@ const ProductCartActions = ({ product }) =>
 
 	return (
 		<Wrapper isVisible={ getProductFromCart() }>
-			<Container>
-				<Action onClick={ () => { decreaseQuantity() } }>
-					<i className='fa fa-sm fa-minus'></i>
-				</Action>
-				<div>{ getQuantity() }</div>
-				<Action onClick={ () => { increaseQuantity() } }>
-					<i className='fa fa-sm fa-plus'></i>
-				</Action>
-			</Container>
+			<Action onClick={ () => { decreaseQuantity() } }>
+				<i className='fa fa-xs fa-minus'></i>
+			</Action>
+			<div>{ getQuantity() }</div>
+			<Action onClick={ () => { increaseQuantity() } }>
+				<i className='fa fa-xs fa-plus'></i>
+			</Action>
 		</Wrapper>
 	)
 }

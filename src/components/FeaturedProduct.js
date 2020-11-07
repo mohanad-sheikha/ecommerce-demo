@@ -12,7 +12,7 @@ const Wrapper = styled(Link)`
 	padding: 2rem;
 `
 
-const FeaturedProduct = ({ product: { id, name, price, originalPrice, imageUrl }, product }) =>
+const FeaturedProduct = ({ product: { id }, product }) =>
 {
 	const getProductDetailsLink = () => routes.find(route => route.name == 'Details').path.replace(':id', id)
 

@@ -34,27 +34,26 @@ class CartStore
 			loadFromOfflineState: action,
 		})
 
-		reaction(() => this.all.slice(), all =>
-		{
-			localforage.setItem('cart', JSON.stringify(all))
-		})
-
 		this.loadFromOfflineState()
+
+		reaction(() => JSON.stringify(this.all), jsonAll =>
+		{
+			localforage.setItem('cart', jsonAll)
+		})
 	}
 
 	loadFromOfflineState ()
 	{
 		this.isLoading = true
-		localforage.getItem('cart')
-			.then(action(json =>
-			{
-				if (!json) return
-				const products = JSON.parse(json)
-				if (!products || !Array.isArray(products)) return
-				this.all = products
-			}))
-			.catch(error => { console.error(error) })
-			.finally(() => { this.isLoading = false })
+		localforage.getItem('cart').then(action(json =>
+		{
+			if (!json) return
+			const products = JSON.parse(json)
+			if (!products || !Array.isArray(products)) return
+			this.all = products
+		})
+		).catch(error => { console.error(error) }
+		).finally(() => { this.isLoading = false })
 	}
 
 	removeProduct (product)
