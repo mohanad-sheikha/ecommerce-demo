@@ -22,12 +22,19 @@ const NavColumn = styled.div`
 `
 const Container = styled.div.attrs(() => ({ className: 'container' }))`
 	display: grid;
+	grid-auto-flow: row;
+	grid-gap: 1rem;
+`
+const NavigationContainer = styled.div`
+	display: grid;
 	grid-auto-flow: column;
 	grid-auto-columns: auto;
 	grid-gap: 2rem;
 	justify-content: start;
 `
-const Author = styled.h6``
+const Author = styled.h6`
+	color: var(--bs-secondary);
+`
 
 const AppFooter = () =>
 {
@@ -39,20 +46,23 @@ const AppFooter = () =>
 	return (
 		<Wrapper>
 			<Container>
-				<NavColumn>
-					<ColumnTitle>Mohanad Abu Sheikha</ColumnTitle>
-					<LinksContainer>
-						<Link to={ getAboutLink() }>About</Link>
-						<Link to={ getContactLink() }>Contact</Link>
-					</LinksContainer>
-				</NavColumn>
-				<NavColumn>
-					<ColumnTitle>Navigate</ColumnTitle>
-					<LinksContainer>
-						<Link to={ getHomeLink() }>Home</Link>
-						<Link to={ getProductsLink() }>Products</Link>
-					</LinksContainer>
-				</NavColumn>
+				<NavigationContainer>
+					<NavColumn>
+						<ColumnTitle>Meaux</ColumnTitle>
+						<LinksContainer>
+							<Link to={ getAboutLink() }>About</Link>
+							<Link to={ getContactLink() }>Contact</Link>
+						</LinksContainer>
+					</NavColumn>
+					<NavColumn>
+						<ColumnTitle>Navigate</ColumnTitle>
+						<LinksContainer>
+							<Link to={ getHomeLink() }>Home</Link>
+							<Link to={ getProductsLink() }>Products</Link>
+						</LinksContainer>
+					</NavColumn>
+				</NavigationContainer>
+				<Author>Mohanad Abu Sheikha</Author>
 			</Container>
 		</Wrapper>
 	)
