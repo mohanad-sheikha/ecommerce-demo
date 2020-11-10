@@ -5,7 +5,7 @@ import Indicator from './Indicator'
 
 const Wrapper = styled.div`
 	display: grid;
-	grid-gap: 0.25rem;
+	grid-gap: 0.5rem;
 	grid-auto-flow: column;
 	grid-auto-columns: min-content;
 `

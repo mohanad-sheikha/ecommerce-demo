@@ -17,11 +17,11 @@ const ProductImageWrapper = styled.div`
 	border-radius: 0.25rem;
 	overflow: hidden;
 `
-const ProductFooterWrapper = styled.div`
-	margin-top: 0.5rem;
-`
 const Container = styled(Link)`
 	color: inherit;
+	display: grid;
+	grid-auto-flow: row;
+	grid-gap: 0.5rem;
 `
 const Wrapper = styled.div`
 	display: grid;
@@ -31,10 +31,8 @@ const Wrapper = styled.div`
 const loadingState = <Fragment>
 	<Container as='div'>
 		<Skeleton width={ '100%' } height={ 200 } />
-		<ProductFooterWrapper>
-			<Skeleton />
-			<Skeleton width={ '50%' } />
-		</ProductFooterWrapper>
+		<Skeleton />
+		<Skeleton width={ '50%' } />
 	</Container>
 </Fragment>
 
@@ -50,9 +48,7 @@ const Product = ({ product: { id }, product, isLoading }) =>
 					<ProductImageWrapper>
 						<ProductImage product={ product } />
 					</ProductImageWrapper>
-					<ProductFooterWrapper>
-						<ProductFooter product={ product } />
-					</ProductFooterWrapper>
+					<ProductFooter product={ product } />
 				</Container>
 			</Fragment> }
 		</Wrapper>

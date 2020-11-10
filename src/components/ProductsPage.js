@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import ProductsPageHeader from './ProductsPageHeader'
 import Products from './Products'
 import styled from 'styled-components'

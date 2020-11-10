@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
 import ReactDOM from 'react-dom'
 import App from './components/App'
+import { createGlobalStyle } from 'styled-components'
 import 'tippy.js/dist/tippy.css'
 import 'tippy.js/themes/light.css'
-import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
 	* {
@@ -27,6 +27,7 @@ const GlobalStyle = createGlobalStyle`
 	body
 	{
 		line-height: normal;
+		background-color: var(--moe-light-secondary);
 	}
 	.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6
 	{

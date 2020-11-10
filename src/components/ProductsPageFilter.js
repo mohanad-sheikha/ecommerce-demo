@@ -29,6 +29,7 @@ const Wrapper = styled.div`
 	padding: 1rem;
 	padding-right: 0;
 	grid-gap: 1rem;
+	border-radius: 0.25rem;
 
 	> ${ Section }:last-child
 	{

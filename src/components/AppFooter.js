@@ -22,10 +22,12 @@ const NavColumn = styled.div`
 `
 const Container = styled.div.attrs(() => ({ className: 'container' }))`
 	display: grid;
-	grid-template-columns: auto auto;
+	grid-auto-flow: column;
+	grid-auto-columns: auto;
 	grid-gap: 2rem;
 	justify-content: start;
 `
+const Author = styled.h6``
 
 const AppFooter = () =>
 {
@@ -38,7 +40,7 @@ const AppFooter = () =>
 		<Wrapper>
 			<Container>
 				<NavColumn>
-					<ColumnTitle>Meaux</ColumnTitle>
+					<ColumnTitle>Mohanad Abu Sheikha</ColumnTitle>
 					<LinksContainer>
 						<Link to={ getAboutLink() }>About</Link>
 						<Link to={ getContactLink() }>Contact</Link>

@@ -49,7 +49,7 @@ const ProductsSearchPage = () =>
 		<Wrapper>
 			{ ProductsStore.isSearching ? loadingState : <Fragment>
 				{ relevantProducts?.length > 0 && <Fragment>
-					<RelevantProductsTitle>Showing results for "{ name }"</RelevantProductsTitle>
+					<RelevantProductsTitle>Results for "{ name }"</RelevantProductsTitle>
 					<Products products={ relevantProducts } />
 				</Fragment> }
 				{ relevantProducts?.length > 0 && otherProducts?.length > 0 && <hr /> }

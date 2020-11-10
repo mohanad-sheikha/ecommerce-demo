@@ -4,6 +4,7 @@ import Currency from './Currency'
 import CartStore from '../mobx/CartStore'
 import DescriptionList, { Label, Value } from './DescriptionList'
 import { observer } from 'mobx-react-lite'
+import { CardElement } from '@stripe/react-stripe-js'
 
 const CustomLabel = styled(Label)`
 	color: var(--bs-secondary);
@@ -21,23 +22,28 @@ const TotalValue = styled(Value)`
 	font-weight: 600;
 	justify-self: end;
 `
-const Checkout = styled(DescriptionList)`
+const Totals = styled(DescriptionList)`
 	justify-content: end;
 `
+const Wrapper = styled.div`
+`
+
 
 const CartPageFooter = () =>
 {
 	const { subTotal, tax, total } = CartStore
 
 	return (
-		<Checkout>
-			<CustomLabel>Subtotal</CustomLabel>
-			<CustomValue><Currency value={ subTotal } /></CustomValue>
-			<CustomLabel>Tax</CustomLabel>
-			<CustomValue><Currency value={ tax } /></CustomValue>
-			<TotalLabel>Total</TotalLabel>
-			<TotalValue><Currency value={ total } /></TotalValue>
-		</Checkout>
+		<Wrapper>
+			<Totals>
+				<CustomLabel>Subtotal</CustomLabel>
+				<CustomValue><Currency value={ subTotal } /></CustomValue>
+				<CustomLabel>Tax</CustomLabel>
+				<CustomValue><Currency value={ tax } /></CustomValue>
+				<TotalLabel>Total</TotalLabel>
+				<TotalValue><Currency value={ total } /></TotalValue>
+			</Totals>
+		</Wrapper>
 	)
 }
 

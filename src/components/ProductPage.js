@@ -25,6 +25,7 @@ const ProductImageWrapper = styled.div`
 	background-color: white;
 	height: 300px;
 	position: relative;
+	border-radius: 0.25rem;
 `
 const loadingState = <Fragment>
 	<Skeleton width={ 200 } />

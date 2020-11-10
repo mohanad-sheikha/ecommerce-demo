@@ -1,5 +1,4 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import styled from 'styled-components'
 import ProductsPage from './ProductsPage'
 import ProductPage from './ProductPage'
@@ -12,6 +11,9 @@ import ContactPage from './ContactPage'
 import Breadcrumbs from './Breadcrumbs'
 import CartPage from './CartPage'
 import UserPage from './UserPage'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Elements } from '@stripe/react-stripe-js'
+import { loadStripe } from '@stripe/stripe-js'
 
 const Wrapper = styled.div`
 	min-height: 100vh;
@@ -21,10 +23,13 @@ const Wrapper = styled.div`
 `
 const Content = styled.div.attrs(() => ({ className: 'container' }))`
 	padding: 2rem 1rem;
+	display: grid;
+	grid-auto-flow: row;
+	grid-gap: 0.5rem;
+	grid-auto-rows: min-content;
 `
-const BreadcrumbsWrapper = styled.div`
-	margin-bottom: 0.5rem;
-`
+
+const stripePromise = loadStripe('pk_test_51Hm0uYASDxT7ZGGGHiySXqenGHtXZeVpsWP57KHLMf9zdT2Sf98vhohwr6VyCJYZCeZPoY4WeWmClWgYVpA8y3VW00IMILiKKz')
 
 export const routes = [
 	{ path: '/', name: 'Home', children: <HomePage />, exact: true, strict: true },
@@ -43,12 +48,14 @@ const App = () =>
 		<Wrapper>
 			<Router>
 				<AppHeader />
-				<Content>
-					<BreadcrumbsWrapper><Breadcrumbs /></BreadcrumbsWrapper>
-					<Switch>
-						{ routes && routes.map(props => (<Route key={ props.path } { ...props } />)) }
-					</Switch>
-				</Content>
+				<Elements stripe={ stripePromise }>
+					<Content>
+						<Breadcrumbs />
+						<Switch>
+							{ routes && routes.map(props => (<Route key={ props.path } { ...props } />)) }
+						</Switch>
+					</Content>
+				</Elements>
 				<AppFooter />
 			</Router>
 		</Wrapper>
