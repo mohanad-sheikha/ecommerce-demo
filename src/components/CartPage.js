@@ -36,7 +36,7 @@ const CartPage = () =>
 					<hr />
 					<CartPageFooter />
 				</Fragment>)
-				: <MetaText>Products added to your cart will be here.</MetaText> }
+				: <MetaText>Products added to your cart will be here</MetaText> }
 		</Wrapper>
 	)
 }
