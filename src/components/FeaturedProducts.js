@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { Fragment, useState } from 'react'
 import styled from 'styled-components'
 import Carousel from './Carousel'
 import FeaturedProduct from './FeaturedProduct'
@@ -25,18 +25,14 @@ const loadingState = <Fragment>
 
 const FeaturedProducts = () =>
 {
-	const [ index, setIndex ] = useState(0)
 	const { onSale: products, isLoading } = ProductsStore
-	const onLeftNav = () => { setIndex(index => index > 0 ? index - 1 : products.length - 1) }
-	const onRightNav = () => { setIndex(index => (index + 1) % products.length) }
-	const onIndicatorSelect = (newIndex) => { setIndex(Math.abs(newIndex) % products.length) }
 
 	return (
 		<Wrapper>
 			{ isLoading ? loadingState : <Fragment>
 				<Title>Featured Products</Title>
-				<RoundedCarousel onLeftNav={ onLeftNav } onRightNav={ onRightNav } onIndicatorSelect={ onIndicatorSelect } pageCount={ products.length } currentIndex={ index }>
-					<FeaturedProduct product={ products[ index ] } />
+				<RoundedCarousel>
+					{ products.map(product => <FeaturedProduct key={ product.id } product={ product } />) }
 				</RoundedCarousel>
 			</Fragment> }
 		</Wrapper>
