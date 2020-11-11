@@ -1,13 +1,15 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './components/App'
 import { createGlobalStyle } from 'styled-components'
+import { BrowserRouter } from 'react-router-dom'
 import 'tippy.js/dist/tippy.css'
 import 'tippy.js/themes/light.css'
 
 const GlobalStyle = createGlobalStyle`
 	* {
 		user-select: none;
+		-webkit-user-drag: none;
 	}
 	a {
 		text-decoration: none;
@@ -43,4 +45,4 @@ const GlobalStyle = createGlobalStyle`
 	}
 `
 
-ReactDOM.render(<Fragment><App /><GlobalStyle /></Fragment>, document.getElementById('app'))
+ReactDOM.render(<BrowserRouter><App /><GlobalStyle /></BrowserRouter>, document.getElementById('app'))

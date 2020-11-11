@@ -16,14 +16,14 @@ const Wrapper = styled.div`
 		margin: 0;
 	}
 `
-const RelevantProductsTitle = styled.h4`
+const Title = styled.h4`
 	margin-bottom: 0;
 `
-const OtherProductsTitle = styled.h5`
-	margin-bottom: 0;
+const MetaText = styled.div`
+	color: var(--bs-secondary);
 `
 const loadingState = <Fragment>
-	<RelevantProductsTitle><Skeleton width={ 300 } /></RelevantProductsTitle>
+	<Title><Skeleton width={ 300 } /></Title>
 	<Products isLoading={ true } />
 </Fragment>
 
@@ -36,26 +36,34 @@ const ProductsSearchPage = () =>
 
 	useEffect(() =>
 	{
+		let unmounted = false
 		ProductsStore.findFuzzyMatches(name).then(matches =>
 		{
-			const highMatches = matches.filter(match => match.score <= matchThreshold)
-			const lowMatches = matches.filter(match => match.score > matchThreshold)
-			setRelevantProducts(highMatches.map(match => match.item))
-			setOtherProducts(lowMatches.map(match => match.item))
+			if (!unmounted)
+			{
+				const goodMatches = matches.filter(match => match.score <= matchThreshold)
+				const badMatches = matches.filter(match => match.score > matchThreshold)
+				setRelevantProducts(goodMatches.map(match => match.item))
+				setOtherProducts(badMatches.map(match => match.item))
+			}
 		})
+		return () => { unmounted = true }
 	}, [ name ])
 
 	return (
 		<Wrapper>
 			{ ProductsStore.isSearching ? loadingState : <Fragment>
 				{ relevantProducts?.length > 0 && <Fragment>
-					<RelevantProductsTitle>Results for "{ name }"</RelevantProductsTitle>
+					<Title>Results for "{ name }"</Title>
 					<Products products={ relevantProducts } />
 				</Fragment> }
 				{ relevantProducts?.length > 0 && otherProducts?.length > 0 && <hr /> }
 				{ otherProducts?.length > 0 && <Fragment>
-					<OtherProductsTitle>Other results</OtherProductsTitle>
+					<Title>Other results</Title>
 					<Products products={ otherProducts } />
+				</Fragment> }
+				{ relevantProducts?.length == 0 && otherProducts?.length == 0 && <Fragment>
+					<MetaText>No results found for "{ name }"</MetaText>
 				</Fragment> }
 			</Fragment> }
 		</Wrapper>

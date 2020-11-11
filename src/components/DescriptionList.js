@@ -20,6 +20,7 @@ export const Value = styled.dd`
 	-webkit-line-clamp: 1;
 	-webkit-box-orient: vertical;
 	overflow: hidden;
+	user-select: text;
 `
 
 const DescriptionList = forwardRef(({ children, ...rest }, ref) =>

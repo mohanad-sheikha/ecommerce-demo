@@ -13,6 +13,7 @@ import { observer } from 'mobx-react-lite'
 const Wrapper = styled.div`
 	display: grid;
 	grid-auto-flow: row;
+	grid-template-rows: min-content min-content auto;
 	grid-gap: 1rem;
 
 	> hr
@@ -30,6 +31,12 @@ const ProductImageWrapper = styled.div`
 const loadingState = <Fragment>
 	<Skeleton width={ 200 } />
 	<Skeleton width={ 100 } />
+	<Skeleton width={ '100%' } height={ 300 } />
+	<hr />
+	<Skeleton width={ 200 } />
+	<Skeleton width={ 100 } />
+	<Skeleton width={ 100 } />
+	<Skeleton width={ 100 } />
 </Fragment>
 
 const ProductPage = () =>
@@ -39,10 +46,10 @@ const ProductPage = () =>
 	const { isLoading } = ProductsStore
 
 	return (
-		<Fragment>
+		<Wrapper>
 			{ isLoading ? loadingState : <Fragment>
 				{ product ? (
-					<Wrapper>
+					<Fragment>
 						<ProductPageHeader product={ product } />
 						<ProductImageWrapper>
 							<ProductCartActions product={ product } />
@@ -50,11 +57,10 @@ const ProductPage = () =>
 						</ProductImageWrapper>
 						<hr />
 						<ProductSpecifications product={ product } />
-					</Wrapper>
-				) : <ProductPageError text="I didn't find that product." />
-				}
+					</Fragment>
+				) : <ProductPageError text="I didn't find that product." /> }
 			</Fragment> }
-		</Fragment>
+		</Wrapper>
 	)
 }
 

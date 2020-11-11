@@ -10,6 +10,7 @@ const Wrapper = styled.footer`
 `
 const ColumnTitle = styled.h6`
 	color: var(--bs-secondary);
+	margin-bottom: 0;
 `
 const LinksContainer = styled.div`
 	display: grid;
@@ -17,13 +18,19 @@ const LinksContainer = styled.div`
 	grid-gap: 0.25rem;
 `
 const NavColumn = styled.div`
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-auto-flow: row;
+	grid-gap: 0.5rem;
 `
 const Container = styled.div.attrs(() => ({ className: 'container' }))`
 	display: grid;
 	grid-auto-flow: row;
 	grid-gap: 1rem;
+
+	> hr
+	{
+		margin: 0;
+	}
 `
 const NavigationContainer = styled.div`
 	display: grid;
@@ -34,6 +41,8 @@ const NavigationContainer = styled.div`
 `
 const Author = styled.h6`
 	color: var(--bs-secondary);
+	font-weight: 400;
+	margin-bottom: 0;
 `
 
 const AppFooter = () =>
@@ -62,6 +71,7 @@ const AppFooter = () =>
 						</LinksContainer>
 					</NavColumn>
 				</NavigationContainer>
+				<hr />
 				<Author>Mohanad Abu Sheikha</Author>
 			</Container>
 		</Wrapper>
