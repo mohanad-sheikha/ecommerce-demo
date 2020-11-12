@@ -8,7 +8,7 @@ const Wrapper = styled.button.attrs(() => ({ className: 'btn btn-link' }))`
 	height: 10px;
 	border-radius: 50% !important;
 	transition: background-color 150ms;
-	background-color: var(--moe-light-secondary);
+	background-color: var(--moe-secondary-light);
 
 	${ props => props.isActive && `
 		background-color: var(--bs-secondary);

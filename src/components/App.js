@@ -20,7 +20,7 @@ const Wrapper = styled.div`
 	min-height: 100vh;
 	display: grid;
 	grid-template-rows: min-content auto min-content;
-	background-color: hsl(0, 0%, 90%);
+	background-color: var(--moe-app-background);
 `
 const Content = styled(animated.div).attrs(() => ({ className: 'container' }))`
 	padding: 2rem 1rem;

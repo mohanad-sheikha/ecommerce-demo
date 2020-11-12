@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 	grid-template-columns: min-content auto min-content;
 	grid-gap: 1rem;
 	opacity: 0;
-	background-color: var(--moe-light-secondary);
+	background-color: var(--moe-secondary-light);
 	z-index: 1;
 	padding: 0.25rem 1rem;
 	border-radius: 0.5rem;

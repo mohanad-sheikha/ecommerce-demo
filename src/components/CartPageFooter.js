@@ -8,16 +8,22 @@ import { CardElement } from '@stripe/react-stripe-js'
 
 const CustomLabel = styled(Label)`
 	color: var(--bs-secondary);
+	overflow: visible;
+	text-overflow: unset;
+	line-break: unset;
 `
 const CustomValue = styled(Value)`
 	color: inherit;
 	justify-self: end;
+	overflow: visible;
+	text-overflow: unset;
+	line-break: unset;
 `
-const TotalLabel = styled(Label)`
+const TotalLabel = styled(CustomLabel)`
 	color: inherit;
 	font-weight: 600;
 `
-const TotalValue = styled(Value)`
+const TotalValue = styled(CustomValue)`
 	color: inherit;
 	font-weight: 600;
 	justify-self: end;
@@ -27,7 +33,6 @@ const Totals = styled(DescriptionList)`
 `
 const Wrapper = styled.div`
 `
-
 
 const CartPageFooter = () =>
 {

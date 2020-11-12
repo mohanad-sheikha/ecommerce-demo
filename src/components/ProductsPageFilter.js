@@ -25,7 +25,7 @@ const Wrapper = styled.div`
 	grid-auto-flow: column;
 	grid-auto-columns: minmax(150px, 250px);
 	overflow-x: auto;
-	background-color: var(--moe-light-secondary);
+	background-color: var(--moe-secondary-light);
 	padding: 1rem;
 	padding-right: 0;
 	grid-gap: 1rem;

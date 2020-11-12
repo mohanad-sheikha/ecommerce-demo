@@ -9,7 +9,7 @@ import { observer } from 'mobx-react-lite'
 
 const Wrapper = styled.header`
 	padding: 0.5rem 0;
-	background-color: var(--moe-light-secondary);
+	background-color: var(--moe-secondary-light);
 	border-bottom: var(--moe-border-small);
 `
 const Container = styled.div.attrs(() => ({ className: 'container' }))`

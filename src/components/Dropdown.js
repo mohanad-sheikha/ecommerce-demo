@@ -13,7 +13,7 @@ const DropdownItem = styled.button.attrs(() => ({ className: 'btn btn-link' }))`
 
 		&:hover
 		{
-			background-color: var(--moe-light-secondary);
+			background-color: var(--moe-secondary-light);
 		}
 	}
 `

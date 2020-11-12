@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 const Wrapper = styled.div`
 	display: grid;
-	grid-gap: 0.25rem;
+	grid-gap: 0.5rem;
 	grid-template-columns: min-content min-content;
 `
 const ArrowButton = styled.button.attrs(() => ({ className: 'btn btn-link' }))`
@@ -12,7 +12,7 @@ const ArrowButton = styled.button.attrs(() => ({ className: 'btn btn-link' }))`
 	height: 32px;
 	width: 32px;
 	border-radius: 50% !important;
-	background-color: var(--moe-light-secondary);
+	background-color: var(--moe-secondary-light);
 `
 const ArrowWrapper = styled.div`
 `

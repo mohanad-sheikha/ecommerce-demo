@@ -10,7 +10,7 @@ const Wrapper = styled.div`
 	max-width: 100%;
 	padding: 1rem;
 	border-radius: 0.5rem;
-	background-color: var(--moe-light-secondary);
+	background-color: var(--moe-secondary-light);
 	overflow: hidden;
 `
 const Title = styled.h6`

@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useRef } from 'react'
+import React, { Fragment, forwardRef, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import CarouselNavigation from './CarouselNavigation'
 import useIndex from '../hooks/useIndex'
@@ -19,16 +19,22 @@ const Container = styled(animated.div)`
 	position: relative;
 	min-height: 0;
 `
+const CenteredMetaText = styled.div`
+	margin: auto;
+	color: var(--bs-secondary);
+`
+const emptyState = () => <Fragment>
+	<CenteredMetaText>Nothing here to display</CenteredMetaText>
+</Fragment>
 
 const Carousel = forwardRef(({ children, ...rest }, ref) =>
 {
 	const [ index, increaseIndex, decreaseIndex, setIndex ] = useIndex(children.length - 1)
 	const timer = useRef(null)
 	const didManualNav = useRef(false)
-	const transitions = useTransition(index, index => index,
-		{
-			from: { opacity: 0 }, enter: { opacity: 1 }, leave: { display: 'none' }, config: config.gentle
-		})
+	const transitions = useTransition(index, index => index, {
+		from: { opacity: 0 }, enter: { opacity: 1 }, leave: { display: 'none' }, config: config.gentle
+	})
 	const autoRightNav = () => { if (!didManualNav.current) onRightNav(); didManualNav.current = false }
 	const onLeftNav = () => { didManualNav.current = true; decreaseIndex() }
 	const onRightNav = () => { didManualNav.current = true; increaseIndex() }
@@ -38,11 +44,12 @@ const Carousel = forwardRef(({ children, ...rest }, ref) =>
 
 	return (
 		<Wrapper { ...rest } ref={ ref }>
-			<PositionedCarouselNavigation onIndicatorSelect={ onIndicatorSelect } onLeftNav={ onLeftNav }
-				onRightNav={ onRightNav } pageCount={ children.length } currentIndex={ index } />
-			{ transitions.map(({ item: index, props: style, key }) => (
-				<Container key={ key } style={ style }>{ children[ index ] }</Container>
-			)) }
+			{ children.length == 0 ? emptyState() : <Fragment>
+				<PositionedCarouselNavigation onIndicatorSelect={ onIndicatorSelect } onLeftNav={ onLeftNav } onRightNav={ onRightNav } pageCount={ children.length } currentIndex={ index } />
+				{ transitions.map(({ item: index, props: style, key }) => (
+					<Container key={ key } style={ style }>{ children[ index ] }</Container>
+				)) }
+			</Fragment> }
 		</Wrapper>
 	)
 })
