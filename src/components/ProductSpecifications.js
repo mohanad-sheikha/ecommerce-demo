@@ -2,6 +2,9 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import DescriptionList, { Label, Value } from './DescriptionList'
 import styled from 'styled-components'
+import moment from 'moment'
+import firebase from 'firebase/app'
+import Currency from './Currency'
 
 const Wrapper = styled.div`
 	display: grid;
@@ -14,14 +17,18 @@ const Title = styled.h5`
 
 const ProductSpecifications = ({ product }) =>
 {
-	const humanLabels = {
-		'id': 'Identifier',
-		'originalPrice': 'Original Price',
-		'price': 'Price',
-		'name': 'Name',
-		'imageUrl': 'Image URL',
-		'size': 'Size',
+	const specifications = {
+		'id': { label: 'Identifier' },
+		'name': { label: 'Name' },
+		'imageUrl': { label: 'Image URL' },
+		'size': { label: 'Size' },
+		'originalPrice': { label: 'Original Price', formatValue: value => <Currency value={ value } /> },
+		'price': { label: 'Price', formatValue: value => <Currency value={ value } /> },
+		'dateAdded': { label: 'Date Added', formatValue: value => moment(new firebase.firestore.Timestamp(product.dateAdded._seconds, product.dateAdded._nanoseconds).toDate()).format('MMMM Do YYYY') }
 	}
+
+	const getLabel = (label) => specifications[ label ].label || label
+	const getValue = (label, value) => specifications[ label ].formatValue?.(value) || value
 
 	return (
 		<Wrapper>
@@ -29,8 +36,8 @@ const ProductSpecifications = ({ product }) =>
 			<DescriptionList>
 				{ product && Object.entries(product).map(([ label, value ]) => (
 					<Fragment key={ label }>
-						<Label>{ humanLabels[ label ] || label }</Label>
-						<Value>{ value }</Value>
+						<Label>{ getLabel(label) }</Label>
+						<Value>{ getValue(label, value) }</Value>
 					</Fragment>
 				)) }
 			</DescriptionList>
