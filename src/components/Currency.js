@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 
 const Wrapper = styled.span`
 	font-family: 'Overpass', sans-serif;
+	line-height: 1;
 `
 
 const Currency = forwardRef(({ value, ...rest }, ref) =>

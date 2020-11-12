@@ -13,18 +13,17 @@ const CustomLabel = styled(Label)`
 	line-break: unset;
 `
 const CustomValue = styled(Value)`
-	color: inherit;
 	justify-self: end;
 	overflow: visible;
 	text-overflow: unset;
 	line-break: unset;
 `
 const TotalLabel = styled(CustomLabel)`
-	color: inherit;
+	color: black;
 	font-weight: 600;
 `
 const TotalValue = styled(CustomValue)`
-	color: inherit;
+	color: black;
 	font-weight: 600;
 	justify-self: end;
 `

@@ -5,7 +5,8 @@ import PropTypes from 'prop-types'
 
 const Wrapper = styled.div`
 	display: grid;
-	grid-template-columns: min-content min-content;
+	grid-auto-flow: column;
+	grid-auto-columns: max-content;
 	grid-gap: 0.5rem;
 	align-items: baseline;
 `
@@ -15,7 +16,6 @@ const OriginalPrice = styled(Currency)`
 	font-size: 0.9rem;
 `
 const CurrentPrice = styled(Currency)`
-	color: black;
 `
 
 const ProductPrice = ({ value, originalValue }) =>
