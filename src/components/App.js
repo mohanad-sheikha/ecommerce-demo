@@ -26,7 +26,7 @@ const Content = styled(animated.div).attrs(() => ({ className: 'container' }))`
 	padding: 2rem 1rem;
 	display: grid;
 	grid-auto-flow: row;
-	grid-gap: 0.5rem;
+	grid-gap: 1rem;
 	grid-auto-rows: min-content;
 	will-change: opacity;
 `
