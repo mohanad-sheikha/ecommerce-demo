@@ -11,6 +11,9 @@ const GlobalStyle = createGlobalStyle`
 		user-select: none;
 		-webkit-user-drag: none;
 	}
+	input {
+		user-select: auto;
+	}
 	a {
 		text-decoration: none;
 	}
@@ -29,7 +32,7 @@ const GlobalStyle = createGlobalStyle`
 	body
 	{
 		line-height: normal;
-		background-color: var(--moe-light-secondary);
+		background-color: var(--moe-secondary-light);
 	}
 	.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6
 	{
@@ -41,7 +44,8 @@ const GlobalStyle = createGlobalStyle`
 		--moe-border-color: hsl(0, 0%, 80%);
 		--moe-border-small: 1px var(--moe-border-style) var(--moe-border-color);
 		--moe-border-medium: 2px var(--moe-border-style) var(--moe-border-color);
-		--moe-light-secondary: hsl(0, 0%, 95%);
+		--moe-secondary-light: hsl(0, 0%, 92%);
+		--moe-app-background: hsl(0, 0%, 87%);
 	}
 `
 
