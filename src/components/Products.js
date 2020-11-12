@@ -7,17 +7,24 @@ const Wrapper = styled.div`
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 	grid-gap: 1rem;
+
+	${ props => props.size == 'small' && `
+		grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+	`}
+	${ props => props.size == 'medium' && `
+		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+	`}
 `
-const loadingState = new Array(3).fill(0).map((value, index) => (
-	<Product key={ index } product={ { id: index } } isLoading={ true } />
+const loadingState = (size) => new Array(3).fill(0).map((value, index) => (
+	<Product key={ index } product={ { id: index } } isLoading={ true } size={ size } />
 ))
 
-const Products = ({ products, isLoading }) =>
+const Products = ({ products, isLoading, size }) =>
 {
 	return (
-		<Wrapper>
-			{ isLoading ? loadingState : <Fragment>
-				{ products && products.map(product => <Product key={ product.id } product={ product } />) }
+		<Wrapper size={ size }>
+			{ isLoading ? loadingState(size) : <Fragment>
+				{ products && products.map(product => <Product key={ product.id } product={ product } size={ size } />) }
 			</Fragment> }
 		</Wrapper>
 	)
@@ -26,7 +33,8 @@ const Products = ({ products, isLoading }) =>
 Products.propTypes =
 {
 	products: PropTypes.arrayOf(PropTypes.object),
-	isLoading: PropTypes.bool
+	isLoading: PropTypes.bool,
+	size: PropTypes.oneOf([ 'small', 'medium', 'large' ])
 }
 
 export default Products

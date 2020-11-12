@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 const Wrapper = styled.div`
 	width: 100%;
 	height: 100%;
+	min-height: 0;
 	position: relative;
 `
 const Image = styled.img`

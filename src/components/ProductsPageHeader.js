@@ -1,7 +1,8 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, Fragment } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Dropdown from './Dropdown'
+import Skeleton from 'react-loading-skeleton'
 
 const Wrapper = styled.div`
 	display: grid;
@@ -20,22 +21,27 @@ const ActionGroup = styled.div`
 const Action = styled.button.attrs(() => ({ className: 'btn btn-link' }))`
 	box-shadow: none !important;
 `
+const loadingState = <Fragment>
+	<Title><Skeleton width={ 250 } /></Title>
+</Fragment>
 
-const ProductsPageHeader = ({ isFilterVisible, toggleFilter }) =>
+const ProductsPageHeader = ({ isFilterVisible, toggleFilter, isLoading }) =>
 {
 	const sortButtonRef = useRef(null)
 
 	return (
 		<Wrapper>
-			<Title>Browse Products</Title>
-			<ActionGroup>
-				<Action onClick={ toggleFilter }><i className='fa fa-sm fa-filter'></i></Action>
-				<Action ref={ sortButtonRef }><i className='fa fa-sort'></i></Action>
-				<Dropdown reference={ sortButtonRef }>
-					<div>Most Relevant</div>
-					<div>Lowest Price</div>
-				</Dropdown>
-			</ActionGroup>
+			{ isLoading ? loadingState : <Fragment>
+				<Title>Browse Products</Title>
+				<ActionGroup>
+					<Action onClick={ toggleFilter }><i className='fa fa-sm fa-filter'></i></Action>
+					<Action ref={ sortButtonRef }><i className='fa fa-sort'></i></Action>
+					<Dropdown reference={ sortButtonRef }>
+						<div>Most Relevant</div>
+						<div>Lowest Price</div>
+					</Dropdown>
+				</ActionGroup>
+			</Fragment> }
 		</Wrapper>
 	)
 }
@@ -43,12 +49,13 @@ const ProductsPageHeader = ({ isFilterVisible, toggleFilter }) =>
 ProductsPageHeader.propTypes =
 {
 	isFilterVisible: PropTypes.bool,
-	toggleFilter: PropTypes.func
+	toggleFilter: PropTypes.func,
+	isLoading: PropTypes.bool
 }
 
 ProductsPageHeader.defaultProps =
 {
-	isFilterVisible: true
+	isFilterVisible: false
 }
 
 export default ProductsPageHeader

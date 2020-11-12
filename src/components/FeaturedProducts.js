@@ -10,6 +10,7 @@ const Wrapper = styled.div`
 	display: grid;
 	grid-template-rows: min-content auto;
 	grid-gap: 1rem;
+	height: 350px;
 `
 const Title = styled.h4`
 	margin-bottom: 0;
@@ -19,7 +20,7 @@ const RoundedCarousel = styled(Carousel)`
 	overflow: hidden;
 `
 const loadingState = <Fragment>
-	<Title><Skeleton width={ 200 } /></Title>
+	<Title><Skeleton width={ 250 } /></Title>
 	<Skeleton width={ '100%' } height={ '100%' } />
 </Fragment>
 
@@ -30,7 +31,7 @@ const FeaturedProducts = () =>
 	return (
 		<Wrapper>
 			{ isLoading ? loadingState : <Fragment>
-				<Title>Featured Products</Title>
+				<Title>Featured Deals</Title>
 				<RoundedCarousel>
 					{ products.map(product => <FeaturedProduct key={ product.id } product={ product } />) }
 				</RoundedCarousel>

@@ -29,11 +29,11 @@ const ProductImageWrapper = styled.div`
 	border-radius: 0.25rem;
 `
 const loadingState = <Fragment>
-	<Skeleton width={ 200 } />
+	<Skeleton width={ 250 } />
 	<Skeleton width={ 100 } />
 	<Skeleton width={ '100%' } height={ 300 } />
 	<hr />
-	<Skeleton width={ 200 } />
+	<Skeleton width={ 250 } />
 	<Skeleton width={ 100 } />
 	<Skeleton width={ 100 } />
 	<Skeleton width={ 100 } />

@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import FeaturedProducts from './FeaturedProducts'
+import NewProducts from './NewProducts'
 
 const Wrapper = styled.div`
 	display: grid;
 	grid-auto-flow: row;
-	grid-auto-rows: 350px;
+	grid-gap: 2rem;
 `
 
 const HomePage = () =>
@@ -13,6 +14,7 @@ const HomePage = () =>
 	return (
 		<Wrapper>
 			<FeaturedProducts />
+			<NewProducts />
 		</Wrapper>
 	)
 }

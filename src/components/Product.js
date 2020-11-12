@@ -16,6 +16,11 @@ const ProductImageWrapper = styled.div`
 	position: relative;
 	border-radius: 0.25rem;
 	overflow: hidden;
+
+	${ props => props.isLoading && `
+		background-color: transparent;
+		padding: 0;
+	`}
 `
 const Container = styled(Link)`
 	color: inherit;
@@ -23,32 +28,53 @@ const Container = styled(Link)`
 	grid-auto-flow: row;
 	grid-gap: 0.5rem;
 `
+const ProductFooterWrapper = styled.div``
+const ProductCartActionsWrapper = styled.div``
 const Wrapper = styled.div`
 	display: grid;
 	grid-auto-flow: row;
 	position: relative;
+
+	${ props => props.size == 'small' && `
+		${ ProductImageWrapper }
+		{
+			height: 100px;
+			padding: 0;
+		}
+		${ ProductFooterWrapper }, ${ ProductCartActionsWrapper }
+		{
+			display: none;
+			pointer-events: none;
+		}
+	`}
+	${ props => props.size == 'medium' && `
+		${ ProductImageWrapper }
+		{
+			height: 150px;
+		}
+	`}
 `
-const loadingState = <Fragment>
+const loadingState = <Wrapper>
 	<Container as='div'>
-		<Skeleton width={ '100%' } height={ 200 } />
+		<ProductImageWrapper isLoading>
+			<Skeleton width={ '100%' } height={ '100%' } />
+		</ProductImageWrapper>
 		<Skeleton />
 		<Skeleton width={ '50%' } />
 	</Container>
-</Fragment>
+</Wrapper >
 
-const Product = ({ product: { id }, product, isLoading }) =>
+const Product = ({ product: { id }, product, isLoading, size }) =>
 {
 	const getProductDetailsLink = () => routes.find(route => route.name == 'Details').path.replace(':id', id)
 
 	return (
-		<Wrapper>
+		<Wrapper size={ size }>
 			{ isLoading ? loadingState : <Fragment>
-				<ProductCartActions product={ product } />
+				<ProductCartActionsWrapper><ProductCartActions product={ product } /></ProductCartActionsWrapper>
 				<Container to={ getProductDetailsLink() }>
-					<ProductImageWrapper>
-						<ProductImage product={ product } />
-					</ProductImageWrapper>
-					<ProductFooter product={ product } />
+					<ProductImageWrapper><ProductImage product={ product } /></ProductImageWrapper>
+					<ProductFooterWrapper><ProductFooter product={ product } /></ProductFooterWrapper>
 				</Container>
 			</Fragment> }
 		</Wrapper>
@@ -60,7 +86,8 @@ Product.propTypes =
 	product: PropTypes.shape({
 		id: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]).isRequired
 	}).isRequired,
-	isLoading: PropTypes.bool
+	isLoading: PropTypes.bool,
+	size: PropTypes.oneOf([ 'small', 'medium', 'large' ])
 }
 
 export default Product

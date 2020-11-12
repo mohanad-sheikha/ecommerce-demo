@@ -19,13 +19,16 @@ const Title = styled.h6`
 	text-overflow: ellipsis;
 	overflow-wrap: break-word;
 `
+const ProductPriceWrapper = styled.div`
+	color: black;
+`
 
 const FeaturedProductInfo = ({ product: { name, price, originalPrice } }) =>
 {
 	return (
 		<Wrapper>
 			<Title>{ name }</Title>
-			<ProductPrice value={ price } originalValue={ originalPrice } />
+			<ProductPriceWrapper><ProductPrice value={ price } originalValue={ originalPrice } /></ProductPriceWrapper>
 		</Wrapper>
 	)
 }

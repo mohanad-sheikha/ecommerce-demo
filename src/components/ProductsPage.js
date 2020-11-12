@@ -16,12 +16,13 @@ const ProductsPage = () =>
 {
 	const [ isFilterVisible, setIsFilterVisible ] = useState(false)
 	const toggleFilter = () => { setIsFilterVisible(!isFilterVisible) }
+	const { all: products, isLoading } = ProductsStore
 
 	return (
 		<Wrapper>
-			<ProductsPageHeader isFilterVisible={ isFilterVisible } toggleFilter={ toggleFilter } />
+			<ProductsPageHeader isFilterVisible={ isFilterVisible } toggleFilter={ toggleFilter } isLoading={ isLoading } />
 			<ProductsPageFilter isVisible={ isFilterVisible } />
-			<Products products={ ProductsStore.all } isLoading={ ProductsStore.isLoading } />
+			<Products products={ products } isLoading={ isLoading } />
 		</Wrapper>
 	)
 }
