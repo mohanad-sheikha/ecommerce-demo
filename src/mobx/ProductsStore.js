@@ -66,8 +66,7 @@ class ProductsStore
 		functions.httpsCallable('getAllProducts')().then(action(({ data }) =>
 		{
 			if (data) this.all = data
-		}))
-			.finally(action(() => { this.isLoading = false }))
+		})).finally(action(() => { this.isLoading = false }))
 	}
 
 	findFuzzyMatches (value)

@@ -12,12 +12,16 @@ const Wrapper = styled.div`
 	border-radius: 0.5rem;
 	background-color: var(--moe-secondary-light);
 	overflow: hidden;
+	display: grid;
+	grid-auto-flow: row;
+	grid-gap: 0.5rem;
 `
 const Title = styled.h6`
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	overflow-wrap: break-word;
+	margin-bottom: 0;
 `
 const ProductPriceWrapper = styled.div`
 	color: black;

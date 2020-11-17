@@ -11,8 +11,12 @@ const ProductName = styled.h6`
 	display: -webkit-box;
 	-webkit-line-clamp: 1;
 	-webkit-box-orient: vertical;
+	margin-bottom: 0;
 `
 const Wrapper = styled.div`
+	display: grid;
+	grid-auto-flow: row;
+	grid-gap: 0.5rem;
 `
 
 const ProductFooter = ({ product: { name, price, originalPrice } }) =>

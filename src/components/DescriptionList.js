@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const Wrapper = styled.dl`
 	display: grid;
-	grid-template-columns: min-content minmax(min-content, auto);
+	grid-template-columns: min-content auto;
 	grid-row-gap: 0.5rem;
 	grid-column-gap: 2rem;
 	margin: 0;

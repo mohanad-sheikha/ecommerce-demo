@@ -28,9 +28,10 @@ const TotalValue = styled(CustomValue)`
 	justify-self: end;
 `
 const Totals = styled(DescriptionList)`
-	justify-content: end;
+	max-width: 300px;
 `
 const Wrapper = styled.div`
+	display: grid;
 `
 
 const CartPageFooter = () =>
