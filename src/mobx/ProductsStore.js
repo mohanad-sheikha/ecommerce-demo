@@ -27,7 +27,7 @@ class ProductsStore
 			isSearching: observable,
 			byId: computed,
 			onSale: computed,
-			newlyAdded: computed,
+			latestReleases: computed,
 			initialize: action,
 			findFuzzyMatches: action
 		})
@@ -45,13 +45,15 @@ class ProductsStore
 		return this.all.filter(product => (product.originalPrice ?? false) && (product.price < product.originalPrice))
 	}
 
-	get newlyAdded ()
+	get latestReleases ()
 	{
-		return this.all.filter(product =>
+		const sortedProducts = this.all.slice().sort((a, b) =>
 		{
-			const difference = moment().diff(this.getDateAdded(product), 'days')
-			return difference >= 0 && difference <= 6
+			const differenceA = moment().diff(this.getDateAdded(a), 'days')
+			const differenceB = moment().diff(this.getDateAdded(b), 'days')
+			return differenceA - differenceB
 		})
+		return sortedProducts.slice(0, 3)
 	}
 
 	getDateAdded (product)

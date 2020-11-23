@@ -15,16 +15,20 @@ const Wrapper = styled.div`
 		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 	`}
 `
+const EmptyTitle = styled.h6`
+	color: var(--bs-secondary);
+`
 const loadingState = (size) => new Array(3).fill(0).map((value, index) => (
 	<Product key={ index } product={ { id: index } } isLoading={ true } size={ size } />
 ))
+const emptyState = <EmptyTitle>Please check back later</EmptyTitle>
 
 const Products = ({ products, isLoading, size }) =>
 {
 	return (
 		<Wrapper size={ size }>
 			{ isLoading ? loadingState(size) : <Fragment>
-				{ products && products.map(product => <Product key={ product.id } product={ product } size={ size } />) }
+				{ products && products.length > 0 ? products.map(product => <Product key={ product.id } product={ product } size={ size } />) : emptyState }
 			</Fragment> }
 		</Wrapper>
 	)

@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import Skeleton from 'react-loading-skeleton'
 import ProductsStore from '../mobx/ProductsStore'
 import Products from './Products'
@@ -15,19 +14,16 @@ const Wrapper = styled.div`
 const Title = styled.h4`
 	margin-bottom: 0;
 `
-const MetaTitle = styled.h6`
-	margin-bottom: 0;
-	font-size: 0.9rem;
-	color: var(--bs-secondary);
-`
 const Header = styled.div``
-const loadingState = <Fragment>
-	<Title><Skeleton width={ 250 } /></Title>
-</Fragment>
+const loadingState = (
+	<Fragment>
+		<Title><Skeleton width={ 250 } /></Title>
+	</Fragment>
+)
 
 const NewProducts = () =>
 {
-	const { newlyAdded: products, isLoading } = ProductsStore
+	const { latestReleases: products, isLoading } = ProductsStore
 
 	return (
 		<Wrapper>

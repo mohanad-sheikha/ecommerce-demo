@@ -7,6 +7,7 @@ const Wrapper = styled.select`
 	border: none;
 	-webkit-appearance: none;
 	padding: 0.25rem 0.5rem;
+	border-radius: 0.25rem;
 `
 
 const Select = ({ options, value, onChange }) =>
