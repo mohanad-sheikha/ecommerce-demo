@@ -68,7 +68,8 @@ class ProductsStore
 		functions.httpsCallable('getAllProducts')().then(action(({ data }) =>
 		{
 			if (data) this.all = data
-		})).finally(action(() => { this.isLoading = false }))
+		})
+		).finally(action(() => { this.isLoading = false }))
 	}
 
 	findFuzzyMatches (value)
@@ -77,7 +78,8 @@ class ProductsStore
 		return functions.httpsCallable('findFuzzyMatches')({ value }).then(({ data }) =>
 		{
 			if (data) return data
-		}).finally(action(() => { this.isSearching = false }))
+		}
+		).finally(action(() => { this.isSearching = false }))
 	}
 }
 

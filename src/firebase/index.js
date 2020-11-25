@@ -4,6 +4,7 @@ import 'firebase/firestore'
 import 'firebase/storage'
 import 'firebase/functions'
 import 'firebase/database'
+import 'firebase/auth'
 
 const config = {
 	apiKey: "AIzaSyCDBcHoOsF2ZZZE42QBQmG-y-PKuHFSklA",
@@ -22,3 +23,4 @@ export const firestore = firebase.firestore()
 export const storage = firebase.storage()
 export const analytics = firebase.analytics()
 export const functions = firebase.functions()
+export const auth = firebase.auth()

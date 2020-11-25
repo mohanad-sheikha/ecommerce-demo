@@ -32,28 +32,10 @@ class CartStore
 			addProduct: action,
 			removeProduct: action,
 			loadFromOfflineState: action,
+			initialize: action,
 		})
 
-		this.loadFromOfflineState()
-
-		reaction(() => JSON.stringify(this.all), jsonAll =>
-		{
-			localforage.setItem('cart', jsonAll)
-		})
-	}
-
-	loadFromOfflineState ()
-	{
-		this.isLoading = true
-		localforage.getItem('cart').then(action(json =>
-		{
-			if (!json) return
-			const products = JSON.parse(json)
-			if (!products || !Array.isArray(products)) return
-			this.all = products
-		})
-		).catch(error => { console.error(error) }
-		).finally(() => { this.isLoading = false })
+		this.initialize()
 	}
 
 	removeProduct (product)
@@ -72,6 +54,30 @@ class CartStore
 		const existingProduct = this.all.find(({ id }) => id == product.id)
 		if (existingProduct) existingProduct.quantity++
 		else this.all.push(Object.assign({}, product, { quantity: 1 }))
+	}
+
+	loadFromOfflineState ()
+	{
+		this.isLoading = true
+		localforage.getItem('cart').then(action(json =>
+		{
+			if (!json) return
+			const products = JSON.parse(json)
+			if (!products || !Array.isArray(products)) return
+			this.all = products
+		})
+		).catch(error => { console.error(error) }
+		).finally(action(() => { this.isLoading = false }))
+	}
+
+	initialize ()
+	{
+		this.loadFromOfflineState()
+
+		reaction(() => JSON.stringify(this.all), json =>
+		{
+			localforage.setItem('cart', json)
+		})
 	}
 }
 
