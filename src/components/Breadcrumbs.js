@@ -29,7 +29,7 @@ const Breadcrumbs = () =>
 		<Wrapper>
 			{ getRouteMatches().map(({ url, name }) => <Fragment key={ url }>
 				<Link to={ url }>{ name }</Link>
-				<span>/</span>
+				<span><i className='fa fa-xs fa-chevron-right'></i></span>
 			</Fragment>) }
 		</Wrapper>
 	)
