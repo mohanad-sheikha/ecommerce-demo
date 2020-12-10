@@ -1,4 +1,6 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const MomentLocalesPlugin = require('moment-locales-webpack-plugin')
 const path = require('path')
 
 module.exports = {
@@ -23,7 +25,9 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new HtmlWebPackPlugin({ template: './src/index.html', filename: './index.html' })
+		new HtmlWebPackPlugin({ template: './src/index.html', filename: './index.html' }),
+		new MomentLocalesPlugin({ localesToKeep: [ 'es-us' ] }),
+		new BundleAnalyzerPlugin()
 	],
 	output: {
 		path: path.resolve(__dirname, 'public/'),

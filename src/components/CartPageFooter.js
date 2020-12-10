@@ -28,10 +28,12 @@ const TotalValue = styled(CustomValue)`
 	justify-self: end;
 `
 const Totals = styled(DescriptionList)`
-	max-width: 300px;
+	grid-template-columns: max-content max-content;
+	justify-content: space-between;
 `
 const Wrapper = styled.div`
 	display: grid;
+	justify-content: center;
 `
 
 const CartPageFooter = () =>

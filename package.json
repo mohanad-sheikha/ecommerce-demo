@@ -33,6 +33,7 @@
 		"mobx-react": "^7.0.0",
 		"mobx-react-lite": "^2.2.2",
 		"moment": "^2.29.1",
+		"moment-locales-webpack-plugin": "^1.2.0",
 		"prop-types": "^15.7.2",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
@@ -43,6 +44,7 @@
 		"tippy.js": "^6.2.7",
 		"uniqid": "^5.2.0",
 		"webpack": "^4.44.2",
+		"webpack-bundle-analyzer": "^4.2.0",
 		"webpack-cli": "^3.3.12",
 		"webpack-dev-server": "^3.11.0"
 	},
